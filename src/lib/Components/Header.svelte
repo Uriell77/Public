@@ -28,7 +28,6 @@
 
     function openMedia(e){
         open = !open;
-        console.log(e.target.id)
         me = e.target.id
     }
 

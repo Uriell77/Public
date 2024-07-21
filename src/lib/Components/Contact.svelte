@@ -30,6 +30,7 @@
             <div class="title is-font-primary">Telefonos de Contacto:</div><br>
             <div class="is-size-4 has-text-black">
             +58 04145798772<br>
+            Calle 19 de Abril Diagonal a la Biblioteca del Estado
             </div>
 
         </div>
