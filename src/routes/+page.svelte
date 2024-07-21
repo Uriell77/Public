@@ -1,7 +1,20 @@
 <script>
+    import { fly } from 'svelte/transition';
+    import { quintOut } from 'svelte/easing';
+    import {onMount} from "svelte";
     import Header from "$lib/Components/Header.svelte";
     import Logo from "$lib/images/Logo.jpg";
     import Noob from "$lib/Components/InfoNoob.svelte";
+    import Contacto from '$lib/Components/Contact.svelte';
+    let load = false;
+
+    function loading(){
+        load = !load;
+    }
+    onMount(()=>{
+        setTimeout(()=>{
+            loading()},1)
+    })
 </script>
 
 <svelte:head>
@@ -17,6 +30,11 @@
         <Noob />
 
     </div>
+
+    {#if load}
+<Contacto />
+{/if}
+
 </section>
 
 <style>

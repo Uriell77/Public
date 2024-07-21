@@ -8,6 +8,12 @@
     import facebook from "$lib/images/logo-facebook.svg";
     import telegram from "$lib/images/logo-telegram.svg";
     import email from "$lib/images/logo-email.svg";
+    import qr from "$lib/images/qr.svg";
+    import qrdir from "$lib/images/qr.jpg";
+    
+    let media = [qr, instagram, facebook, telegram, email];
+    let media2 = ["qr", "instagram", "facebook", "telegram", "email"];
+
     let load = false;
 
     function loading(){
@@ -17,6 +23,15 @@
         setTimeout(()=>{
             loading()},1)
     })
+    let open = false;
+    let me;
+
+    function openMedia(e){
+        open = !open;
+        console.log(e.target.id)
+        me = e.target.id
+    }
+
 </script>
 
 
@@ -39,10 +54,17 @@
         <div class="media-group">
 
             <div class="media-content is-flex">
-                <img class="is-rounded is-media " src="{instagram}" alt="media" width="30" height="30"/>
-                <img class="is-rounded is-media " src="{facebook}" alt="media" width="30" height="30"/>
-                <img class="is-rounded is-media " src="{telegram}" alt="media" width="30" height="30"/>
-                <img class="is-rounded is-media " src="{email}" alt="media" width="30" height="30"/>
+                {#each media as med,index}
+                    <img
+                        id="{index}"
+                        class="is-rounded is-media is-clickable"
+                        src="{med}"
+                        alt="media"
+                        width="30"
+                        height="30"
+                        on:click={openMedia}
+                    />
+                {/each}
             </div>
 
         </div>
@@ -50,11 +72,58 @@
     </div>
 
 </section>
+
+
+{#key open}
+<div class="contacto {open ? "":"is-hidden"}" transition:fly={{duration:3000, x:0, y:600, opacity:0.7, easing:quintOut}}>
+    <div class="section py-0 is-justify-content-flex-end is-flex">
+    <div class="tag  is-clinic-primary closed mr-0 mt-3 p-3 is-clickable" on:click={openMedia} >X</div>
+    </div>
+    <div class="container">
+        <div class="section has-text-centered pt-2">
+            {#if me == 0}
+                <img src="{qrdir}" alt="qr" width="300" height="100" />
+                {:else}
+                {#if media2[me] == "email"}
+                    <div class="section container title has-text-centered">
+                        neurobejas@gmail.com
+                    </div>
+                    {:else}
+                            <div>
+                                {media2[me]}
+                            </div>
+                {/if}
+            {/if}
+        </div>
+    </div>
+</div>
+{/key}
+
 {/if}
 
 
 
 <style>
+    .closed{
+        width:3px;
+        height:8px;
+        border-radius: 50%;
+        z-index:180;
+
+    }
+
+
+    .contacto{
+        background-color:rgb(255, 255, 228);
+        border-radius: 10% 10% 0px 0px;
+        position:fixed;
+        top:50%;
+        z-index:150;
+        width:100%;
+        height:50%;
+        border-style:solid;
+        border-color: var(--color-clinic-primary)
+    }
 
     section{
     border-radius: 0px 0px 20px 20px;
@@ -85,17 +154,9 @@
     color: var(--color-clinic-neutro);
     }
 
-    figure{
-    left:6px;
-    top: 4px;
-    position:absolute;
-    z-index:1;
-
-    }
 
     .media{
     z-index:1;
-    background-color:green;
     }
 
     .media-content{

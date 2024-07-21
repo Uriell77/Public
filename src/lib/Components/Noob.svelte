@@ -27,7 +27,7 @@
                     </div>
                     <div class="media-content">
                         <div class="content ">
-                            <p class="">
+                            <p class="has-text-white">
                                 <strong class="is-font-primary">
                                         {titulo[indice]}
                                 </strong> 
@@ -53,7 +53,7 @@
                     </div>
                     <div class="media-content">
                         <div class="content">
-                            <p>
+                            <p class="has-text-white">
                                 <strong class="is-font-primary">{titulo[indice]}</strong> 
                                 <br />
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
@@ -66,6 +66,11 @@
             </div>
         {/key}
 {/if}
+
+
+
+
+
 
 
 <style>

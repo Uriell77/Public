@@ -21,6 +21,7 @@
 }
 
 body {
+    scroll-behavior: smooth;
 	min-height: 100vh;
 	margin: 0;
 	background-attachment: fixed;
