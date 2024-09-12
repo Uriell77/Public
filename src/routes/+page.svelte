@@ -35,7 +35,15 @@
 <Contacto />
 {/if}
 
+<footer class="footer px-4">
+    <div class="content has-text-centered">
+        Lorem voluptate sit facilis aperiam vero? Veniam harum explicabo nisi quasi asperiores Hic inventore placeat sed consequatur sequi Aliquam aliquam.
+    </div>
+</footer>
 </section>
+
+
+
 
 <style>
 	section {
@@ -44,5 +52,10 @@
         overflow:hidden;
 	}
 
+    .footer{
+        background-color:rgba(1,1,1,.2);
+        height:10px !important;
+        mask-image: linear-gradient( transparent 0%, black 40%);
+    }
 
 </style>

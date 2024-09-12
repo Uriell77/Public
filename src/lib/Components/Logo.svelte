@@ -1,11 +1,12 @@
 <script>
     import Logo from "$lib/images/Logo.jpg";
+    export let tam="is-1by1";
 </script>
 
 
 
-        <figure class="image is-96x96">
-            <img class="is-rounded" src="{Logo}" alt="logo"/>
+        <figure class="image {tam} py-0 my-4">
+            <img class="is-rounded  py-0 my-0 " src="{Logo}" alt="logo" />
         </figure>
 
 
@@ -13,15 +14,13 @@
 
 
 <style>
-
-
-    figure{
-        left:6px;
-        top: 4px;
-        position:absolute;
-        z-index:1;
-
+    .image{
+        height:65px;
+        width: 65px;
     }
+
+
+
 
     
 </style>

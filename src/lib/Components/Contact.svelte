@@ -15,13 +15,13 @@
 </script>
 
 
-<figure class="image is-64x64 " in:fly={{duration:3000, x:0, y:100, opacity:0.5, easing:quintOut}} on:click={openContacto} on:keyup={openContacto}>
-    <img src="{contact}" alt="" class="is-rounded is-clinic-secondary is-clickable" />
+<figure class=" image is-64x64 " in:fly={{duration:3000, x:0, y:100, opacity:0.5, easing:quintOut}} on:click={openContacto} on:keyup={openContacto}>
+    <img src="{contact}" alt="" class="is-rounded is-gradient-secondary-soft is-clinic-secondary is-clickable" />
 </figure>
 
 
 {#key open}
-<div class="contacto {open ? "":"is-hidden"}" transition:fly={{duration:3000, x:0, y:600, opacity:0.7, easing:quintOut}}>
+<div class="contacto {open ? "":"is-hidden"}" transition:fly={{duration:1000, x:0, y:600, opacity:0.7, easing:quintOut}}>
     <div class="section py-0 is-justify-content-flex-end is-flex">
     <div class="tag  is-clinic-primary closed mr-0 mt-3 p-3 is-clickable" on:click={openContacto} >X</div>
     </div>

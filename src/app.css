@@ -125,6 +125,42 @@ button:focus:not(:focus-visible) {
 }
 
 
+.is-gradient-primary{
+        background: hsla(225, 100%, 17%, 1);
+
+background: linear-gradient(180deg, hsla(225, 100%, 17%, 1) 0%, hsla(65, 14%, 83%, 1) 100%);
+
+background: -moz-linear-gradient(180deg, hsla(225, 100%, 17%, 1) 0%, hsla(65, 14%, 83%, 1) 100%);
+
+background: -webkit-linear-gradient(270deg, hsla(225, 100%, 17%, 1) 0%, hsla(65, 14%, 83%, 1) 100%);
+
+}
+
+
+
+.is-gradient-secondary{
+        background: hsla(225, 100%, 17%, 1);
+
+background: linear-gradient(180deg, hsla(225, 100%, 17%, 1) 0%, hsla(65, 14%, 83%, 1) 100%);
+
+background: -moz-linear-gradient(180deg, hsla(225, 100%, 17%, 1) 0%, hsla(65, 14%, 83%, 1) 100%);
+
+background: -webkit-linear-gradient(180deg, hsla(225, 100%, 17%, 1) 0%, hsla(65, 14%, 83%, 1) 100%);
+
+}
+
+
+.is-gradient-secondary-soft{
+        background: hsla(225, 100%, 17%, 1);
+
+background: linear-gradient(180deg, hsla(225, 100%, 17%, 1) 0%, hsla(65, 14%, 83%, 1) 100%);
+
+background: -moz-linear-gradient(180deg, hsla(225, 100%, 17%, 1) 0%, hsla(65, 14%, 83%, 1) 100%);
+
+background: -webkit-linear-gradient(180deg, hsla(125, 10%, 37%, 1) 0%, hsla(65, 14%, 93%, 1) 100%);
+
+}
+
 
 .font-alice {
   font-family: 'Alice', serif;

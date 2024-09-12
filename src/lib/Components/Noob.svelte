@@ -18,7 +18,7 @@
 
 {#if indice%2 == 0}
     {#key indice}
-            <div  class="box is-clinic-secondary iz" in:fly|global={{duration:3000, x:-400, y:0, opacity:0.5, easing:quintOut}}>
+            <div  class="box is-gradient-primary is-clinic-secondary iz" in:fly|global={{duration:3000, x:-400, y:0, opacity:0.5, easing:quintOut}}>
                 <article class="media">
                     <div class="media-left">
                         <figure class="image is-64x64 ">
@@ -44,7 +44,7 @@
         {/key}
 {:else}
     {#key indice}
-            <div  class="box is-clinic-secondary der" in:fly|global={{duration:3000, x:400, y:0, opacity:0.5, easing:quintOut}}>
+            <div  class="box is-gradient-secondary is-clinic-secondary der" in:fly|global={{duration:3000, x:400, y:0, opacity:0.5, easing:quintOut}}>
                 <article class="media">
                     <div class="media-left">
                         <figure class="image is-64x64 ">
