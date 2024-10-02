@@ -1,6 +1,6 @@
 <script>
     import {onMount} from "svelte";
-    import { fly } from 'svelte/transition';
+    import { fly,fade } from 'svelte/transition';
     import { quintOut } from 'svelte/easing';
     import Medicos from "$lib/images/medicos.webp";
     import Nav from "$lib/Components/Navbar.svelte";
@@ -11,6 +11,20 @@
     import email from "$lib/images/logo-email.svg";
     import qr from "$lib/images/qr.svg";
     import qrdir from "$lib/images/qr.jpg";
+
+    $: slide = 0;
+
+
+    onMount(()=>{
+        setInterval(()=>{
+            if(slide < 5){
+                slide += 1;
+            }else{
+                slide = 1;
+            }
+        },4000
+        )
+    })
     
     let media = [qr, instagram, facebook, telegram, email];
     let media2 = ["qr", "instagram", "facebook", "telegram", "email"];
@@ -43,7 +57,13 @@
             </div>
 
             <div class="hero-body has-text-centered">
-                <div class="container has-text-centered">
+
+                {#key slide}
+                    <img class="fond" src="src/lib/images/slide/slide{slide}.png" alt="r" in:fade={{duration:1000, easing:quintOut}} />
+                {/key}
+
+
+                <div class="container has-text-centered titulo">
                     <p class="title font-alice">
                         <big>C</big>onsultorio <big>C</big>linico
                             <br>
@@ -61,51 +81,45 @@
 
 <style>
 
+    @media only screen and (max-width: 768px) {
+    .fond{
+        position:absolute !important;
+        top:-15% !important;
+        right:0%;
+        height:70% !important;
+        width: 50% !important;
+        mask-image: radial-gradient(black 40%,transparent) !important;
+        filter:opacity(20%) !important;
+        mask-size:cover !important;
+        mask-repeat:no-repeat;
+       mask-position:center !important; 
+    }
+}
+
+    .fond{
+        position:absolute !important;
+        top:0%;
+        right:0%;
+        height:100%;
+        width: 50%;
+        mask-image: radial-gradient(black 40%,transparent);
+        filter:opacity(20%);
+        mask-size:cover;
+        mask-repeat:no-repeat;
+       mask-position:center; 
+    }
+
     big{
         color:var(--color-clinic-primary);
         font-size: 48px;
     }
 
-    .is-white{
-        color:white;
-    }
-
-    .closed{
-        width:3px;
-        height:8px;
-        border-radius: 50%;
-        z-index:180;
-
-    }
-
-
-    .contacto{
-        background-color:rgb(255, 255, 228);
-        border-radius: 10% 10% 0px 0px;
-        position:fixed;
-        top:50%;
-        z-index:150;
-        width:100%;
-        height:50%;
-        border-style:solid;
-        border-color: var(--color-clinic-primary)
-    }
 
     section{
     border-radius: 0px 0px 20px 20px;
     }
 
 
-    .media{
-    z-index:1;
-    }
-
-    .media-content{
-    top: 209px;
-    z-index:5;
-    position:absolute !important;
-    right:10px !important;
-    }
 
     .hero{
         mask-image: linear-gradient(black 95%,transparent);

@@ -15,9 +15,10 @@
 </script>
 
 
-
+<ul>
 {#if indice%2 == 0}
     {#key indice}
+        <li class="my-1">
             <div  class="box is-gradient-primary is-clinic-secondary iz" in:fly|global={{duration:3000, x:-400, y:0, opacity:0.5, easing:quintOut}}>
                 <article class="media">
                     <div class="media-left">
@@ -26,24 +27,22 @@
                         </figure>
                     </div>
                     <div class="media-content">
-                        <div class="content ">
-                            <p class="has-text-white">
+                        <div class="content">
+                            <p class="has-text-white has-text-centered pt-4">
                                 <strong class="is-font-primary">
                                         {titulo[indice]}
                                 </strong> 
 
-                                <br />
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
-                                efficitur sit amet massa fringilla egestas. Nullam condimentum luctus
-                                turpis.
                             </p>
                         </div>
                     </div>
                 </article>
             </div>
+        </li>
         {/key}
 {:else}
     {#key indice}
+        <li>
             <div  class="box is-gradient-secondary is-clinic-secondary der" in:fly|global={{duration:3000, x:400, y:0, opacity:0.5, easing:quintOut}}>
                 <article class="media">
                     <div class="media-left">
@@ -53,22 +52,20 @@
                     </div>
                     <div class="media-content">
                         <div class="content">
-                            <p class="has-text-white">
+                            <p class="has-text-white has-text-centered pt-4">
                                 <strong class="is-font-primary">{titulo[indice]}</strong> 
-                                <br />
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
-                                efficitur sit amet massa fringilla egestas. Nullam condimentum luctus
-                                turpis.
                             </p>
                         </div>
                     </div>
                 </article>
             </div>
+        </li>
         {/key}
 {/if}
 
 
 
+</ul>
 
 
 
