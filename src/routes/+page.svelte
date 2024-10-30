@@ -90,6 +90,7 @@
 
                         <div class="container is-flex is-justify-content-center">
                             <figure class="image is-128x128 mb-5">
+                                <!-- svelte-ignore a11y-missing-attribute -->
                                 <img
                                     in:scale={{duration:1000, x:-500, y:0, opacity:.8}}
                                     class=" is-centered is-rounded"
@@ -125,6 +126,8 @@
                                         placeholder="Password"
                                         required
                                     />
+                                    <!-- svelte-ignore a11y-click-events-have-key-events -->
+                                    <!-- svelte-ignore a11y-no-static-element-interactions -->
                                     <span class="icon is-small is-right is-pulled-right eye is-clickable" on:click="{eyechange}">
                                         <ion-icon id="logpassword" name="{eye3 ?"eye-off-outline": "eye-outline"}">
                                     </span>
@@ -169,6 +172,7 @@
                                 {#if evalReg}
                                     <LogoCarga />
                                 {:else}
+                                    <!-- svelte-ignore a11y-missing-attribute -->
                                     <img
                                         in:scale={{duration:1000, x:-500, y:0, opacity:.8}}
                                         class=" is-centered is-rounded"
@@ -223,6 +227,8 @@
                                         placeholder="Password"
                                         required
                                     />
+                                    <!-- svelte-ignore a11y-click-events-have-key-events -->
+                                    <!-- svelte-ignore a11y-no-static-element-interactions -->
                                     <span class="icon is-small is-right is-pulled-right eye is-clickable" on:click="{eyechange}">
                                         <ion-icon id="password" name="{eye?"eye-off-outline": "eye-outline"}">
                                     </span>
@@ -239,6 +245,8 @@
                                         placeholder="Retype Password"
                                         required
                                     />
+                                    <!-- svelte-ignore a11y-click-events-have-key-events -->
+                                    <!-- svelte-ignore a11y-no-static-element-interactions -->
                                     <span class="icon is-small is-right is-pulled-right eye is-clickable" on:click="{eyechange}">
                                         <ion-icon id="repassword" name="{eye2 ?"eye-off-outline": "eye-outline"}">
                                     </span>
@@ -306,9 +314,6 @@
     }
 
 
-    .is-color{
-        background-color:red;
-    }
 
     .cajadeform{
         background-color:rgba(1,1,1,0);
