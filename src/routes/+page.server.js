@@ -10,7 +10,7 @@ export const actions = {
 
 
         try{
-            const { date, error } = await supabase
+            const { data, error } = await supabase
                 .from('users')
                 .insert([
                     { Username: username, Email: email, Password: password},
@@ -21,8 +21,8 @@ export const actions = {
 
         }
         catch{
-            console.log(error)
-            return {regAnswer: error}
+            console.log(Error)
+            return {regAnswer: Error}
 
         }
 
