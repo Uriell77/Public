@@ -23,6 +23,8 @@
 	"dependencies": {
 		"@fontsource-variable/inconsolata": "^5.0.18",
 		"@fontsource/alice": "^5.0.13",
-		"bulma": "^1.0.1"
+		"@supabase/supabase-js": "^2.46.0",
+		"bulma": "^1.0.1",
+		"dotenv": "^16.4.5"
 	}
 }

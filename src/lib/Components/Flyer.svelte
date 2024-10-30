@@ -19,7 +19,7 @@
 
         {#each flaier as flay,index}
            
-        <div class="column is-5 is-inline ">
+        <div class="column is-full is-inline ">
             <div class="card">
                 <div class="card-content p-1">
                     <img src="/flyer/{flaier[index]}.jpg" alt="" height="200px">
@@ -41,11 +41,15 @@
 
     .scroll{
     overflow:auto !important;
-    padding-left:40%;
+    padding-left:50%;
     }
 
     .oolumn{
         padding-left:70% !important;
+    }
+
+    .columns{
+        width:100%;
     }
 
 
