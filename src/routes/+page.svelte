@@ -44,7 +44,7 @@
 
 
     function entrar(){
-        console.log("ter")
+        console.log("termino")
     }
 
     function cambioform(){
