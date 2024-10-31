@@ -1,6 +1,7 @@
 <script>
+    import {onMount} from "svelte";
 	import '../app.css';
-
+	
 </script>
 
 
@@ -19,7 +20,7 @@
 		<slot />
 	</main>
     <footer class="hero is-small is-black py-3 mt-0">
-        <block class="container has-text-centered">
+        <block class="container has-text-centered is-size-7">
             PublicHub Desarrollado por Luis Hermoso
         </block>
 
@@ -28,12 +29,6 @@
 
 
 
-<article class="message is-primary is-hidden">
-  <div class="message-header">
-      Dolor voluptates minima perspiciatis veritatis sint nam. Quasi modi natus.
-    <button class="delete" aria-label="delete"></button>
-  </div>
-</article>
 
 
 
@@ -41,10 +36,6 @@
 
 <style>
 
-    .message{
-        position:absolute !important;
-        bottom: 0%;
-    }
 
 
 	.app {

@@ -8,8 +8,8 @@ export const actions = {
         const email = data.get('email');
         const password = data.get('password');
 
-
         try{
+            
             const { data, error } = await supabase
                 .from('users')
                 .insert([
@@ -17,6 +17,7 @@ export const actions = {
                 ])
                 .select()
 
+        console.log("aqui estamos")
             return {regAnswer: 1}
 
         }

@@ -9,7 +9,9 @@
     import Flyer from "$lib/Components/Flyer.svelte";
     import Contacto from '$lib/Components/Contact.svelte';
     import LogoCarga from '$lib/Components/LogoCarga.svelte';
+    import Modal from '$lib/Components/Modal.svelte';
     export let form;
+
 
     let load = false;
     let formulario = false;
@@ -17,6 +19,8 @@
     let eye = false;
     let eye2 = false;
     let eye3 = false;
+    let modalflag = false;
+    let mensaje = "";
 
     function eyechange(e){
         console.log(e.target.id)
@@ -30,16 +34,19 @@
 
     }
 
-    function flagChange(e){
+    function flagChange(){
         evalReg = !evalReg;
-        if(form?.regAnswer == 1){
             setTimeout(()=>{
+    if(form?.regAnswer == 1){
                 evalReg = !evalReg;
                 formulario = !formulario;
-            },1000)
+                modalflag = !modalflag;
+                mensaje = "Registro Exitoso";
+
         }else{
             console.log(form?.regAnswer)
         }
+            },2000)
     }
 
 
@@ -74,6 +81,7 @@
 
 
 
+
 <!-- formulario login -->
     {#if !formulario}
         <div class="section py-0 px-0 is-justify-content-center fondo my-0" >
@@ -84,7 +92,7 @@
                     >
 
                         <h1 
-                            in:scale={{ duration:1000, x:500, y:0, opacity:.8}}
+                            in:scale={{ duration:1000, opacity:.8}}
                         >Login</h1>
                         <br>
 
@@ -92,7 +100,7 @@
                             <figure class="image is-128x128 mb-5">
                                 <!-- svelte-ignore a11y-missing-attribute -->
                                 <img
-                                    in:scale={{duration:1000, x:-500, y:0, opacity:.8}}
+                                    in:scale={{duration:1000, opacity:.8}}
                                     class=" is-centered is-rounded"
                                     src="publicdev.png" />
                             </figure>
@@ -104,7 +112,7 @@
 
 
                             <div class="field" 
-                                in:scale={{ duration:1000, x:500, y:0, opacity:.8}}
+                                in:scale={{ duration:1000, opacity:.8}}
                             >
                                 <div class="control is-small ">
                                     <input
@@ -117,7 +125,7 @@
                             </div>
 
                             <div class="field"
-                                in:scale={{ duration:1000, x:500, y:0, opacity:.8}}
+                                in:scale={{ duration:1000, opacity:.8}}
                             >
                                 <div class="control is-small ">
                                     <input
@@ -162,19 +170,19 @@
                     <div class="box cajadeform has-text-centered is-shadowless"
                     >
                         <h1
-                            in:scale={{duration:1000, x:-500, y:0, opacity:.8}}
+                            in:scale={{duration:1000, opacity:.8}}
                         >Registro</h1>
                         <br>
 
                         <div class="container mt-1 is-flex is-justify-content-center">
                             <figure class="image is-128x128 mb-5">
 
-                                {#if evalReg}
+                                 {#if evalReg}
                                     <LogoCarga />
-                                {:else}
+                                {:else if evalReg == false && form?.regAnswer == undefined || evalReg == false && form?.regAnswer == 1}
                                     <!-- svelte-ignore a11y-missing-attribute -->
                                     <img
-                                        in:scale={{duration:1000, x:-500, y:0, opacity:.8}}
+                                        in:scale|global={{duration:1000,  opacity:.8}}
                                         class=" is-centered is-rounded"
                                         src="publicdev.png" />
                                 {/if}
@@ -184,12 +192,12 @@
 
 
 
-                        <form action="?/registro" method="POST" use:enhance >
+                        <form action="?/registro" method="POST" use:enhance on:submit={flagChange}>
 
 
 
                             <div class="field"
-                                in:scale={{duration:1000, x:-500, y:0, opacity:.8}}
+                                in:scale={{duration:1000, opacity:.8}}
                             >
                                 <div class="control is-small" >
                                     <input
@@ -203,7 +211,7 @@
                             </div>
 
                             <div class="field"
-                                in:scale={{duration:1000, x:-500, y:0, opacity:.8}}
+                                in:scale={{duration:1000, opacity:.8}}
                             >
                                 <div class="control is-small ">
                                     <input
@@ -217,7 +225,7 @@
                             </div>
 
                             <div class="field"
-                                in:scale={{duration:1000, x:-500, y:0, opacity:.8}}
+                                in:scale={{duration:1000, opacity:.8}}
                             >
                                 <p class="control is-small has-icon-right">
                                     <input
@@ -236,7 +244,7 @@
                             </div>
 
                             <div class="field"
-                                in:scale={{duration:1000, x:-500, y:0, opacity:.8}}
+                                in:scale={{duration:1000, opacity:.8}}
                             >
                                 <p class="control is-small has-icon-right">
                                     <input
@@ -259,7 +267,7 @@
                             <div class="container is-flex is-justify-content-center pt-5">
                                 <div class="buttons">
                                     <button class="button " on:click="{cambioform}">Ir a Login</button>
-                                    <button class="button is-primary is-light" type="submit" on:click="{flagChange}">Registrar</button>
+                                    <button class="button is-primary is-light" type="submit">Registrar</button>
                                 </div>
                             </div>
 
@@ -289,7 +297,7 @@
 {/if}
 
 
-
+<Modal bind:mess="{modalflag}" mensaje="{mensaje}"/>
 
 
 
