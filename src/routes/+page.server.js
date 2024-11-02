@@ -17,7 +17,6 @@ export const actions = {
                 ])
                 .select()
 
-        console.log("aqui estamos")
             return {regAnswer: 1}
 
         }

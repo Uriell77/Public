@@ -2,7 +2,7 @@
     import { enhance } from '$app/forms';
     import { scale } from 'svelte/transition';
     import { quintOut } from 'svelte/easing';
-    import {onMount} from "svelte";
+    import {beforeUpdate, onMount} from "svelte";
     import Header from "$lib/Components/Header.svelte";
     import Logo from "$lib/images/Logo.jpg";
     import Noob from "$lib/Components/InfoNoob.svelte";
@@ -21,6 +21,11 @@
     let eye3 = false;
     let modalflag = false;
     let mensaje = "";
+    let modalcolor = "is-primary";
+    let pass;
+    let repass;
+    $: comparacion = true;
+    
 
     function eyechange(e){
         console.log(e.target.id)
@@ -42,9 +47,8 @@
                 formulario = !formulario;
                 modalflag = !modalflag;
                 mensaje = "Registro Exitoso";
+                modalcolor = "is-primary";
 
-        }else{
-            console.log(form?.regAnswer)
         }
             },2000)
     }
@@ -65,7 +69,11 @@
             loading()},1)
     })
 
-
+function compararpass(){
+    comparacion = pass.value == repass.value;
+    console.log(comparacion)
+    return comparacion
+}
 
 </script>
 
@@ -190,7 +198,9 @@
                         </div>
 
 
-
+                        {#if !comparacion}
+                            <div class="tag is-warning is-absolute passno">Los Passwords no Coinciden</div>
+                        {/if}
 
                         <form action="?/registro" method="POST" use:enhance on:submit={flagChange}>
 
@@ -217,7 +227,7 @@
                                     <input
                                         name="email"
                                         class="input  is-small"
-                                        type="text"
+                                        type="email"
                                         placeholder="Email"
                                         required
                                     />
@@ -229,6 +239,8 @@
                             >
                                 <p class="control is-small has-icon-right">
                                     <input
+                                        on:keyup={compararpass}
+                                        bind:this="{pass}"
                                         name="password"
                                         class="input  is-small "
                                         type="{eye?"text":"password"}"
@@ -238,7 +250,7 @@
                                     <!-- svelte-ignore a11y-click-events-have-key-events -->
                                     <!-- svelte-ignore a11y-no-static-element-interactions -->
                                     <span class="icon is-small is-right is-pulled-right eye is-clickable" on:click="{eyechange}">
-                                        <ion-icon id="password" name="{eye?"eye-off-outline": "eye-outline"}">
+                                        <ion-icon id="password" name="{eye?"eye-off-outli.ne": "eye-outline"}" />
                                     </span>
                                 </p>
                             </div>
@@ -248,6 +260,8 @@
                             >
                                 <p class="control is-small has-icon-right">
                                     <input
+                                        on:keyup={compararpass}
+                                        bind:this="{repass}"
                                         class="input  is-small"
                                         type="{eye2?"text":"password"}"
                                         placeholder="Retype Password"
@@ -297,11 +311,19 @@
 {/if}
 
 
-<Modal bind:mess="{modalflag}" mensaje="{mensaje}"/>
+<Modal bind:mess="{modalflag}" mensaje="{mensaje}" color="{modalcolor}"/>
 
 
 
 <style>
+
+
+   .passno{
+    position: absolute;
+    top:47%;
+    left:50%;
+    transform:translate(-50%,-50%);
+}
     .eye{
         position:absolute;
         top:12%;

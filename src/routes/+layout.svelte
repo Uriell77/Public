@@ -21,7 +21,7 @@
 	</main>
     <footer class="hero is-small is-black py-3 mt-0">
         <block class="container has-text-centered is-size-7">
-            PublicHub Desarrollado por Luis Hermoso
+            PublicDev Desarrollado por Luis Hermoso
         </block>
 
     </footer>
