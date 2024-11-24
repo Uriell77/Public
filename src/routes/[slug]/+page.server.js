@@ -1,6 +1,8 @@
 import { supabase } from "$lib/supabaseClient";
 import { fail, redirect } from "@sveltejs/kit";
 
+
+
 let valor;
 
 
@@ -9,11 +11,12 @@ let valor;
 
 /** @type {import('./$types').PageServerLoad} */
 export async function load({ params, cookies }) {
-    let slug = cookies.get('session');
+    let session = cookies.get('session');
   let { data: users, error } = await supabase.from("users").select("Username");
   return {
     usuario: users,
-    slug: slug
+    session: session,
+    path: params.slug
   };
 
     }

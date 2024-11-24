@@ -29,6 +29,7 @@
 
     <div class="section p-0">
 
+        {$page.data.path}
 
         <Flyer />
 
