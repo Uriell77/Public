@@ -25,9 +25,10 @@
 </svelte:head>
 
 <section>
-    <Header slug ={$page.data.slug}/>
+    <Header slug ={$page.url.pathname.slice(1)}/>
 
     <div class="section p-0">
+
 
         <Flyer />
 
