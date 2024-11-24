@@ -1,14 +1,17 @@
 <script>
+    import { page } from '$app/stores';
     import {onMount} from "svelte";
 	import '../app.css';
+
+    $: titulo = $page.data.path;
 	
 </script>
 
 
 
 <svelte:head>
-    <title>PublicDev</title>
-    <meta name="description" content="Public" />
+    <title>{titulo != "undefined" ? titulo : "PublicDev"}</title>
+    <meta name="description" content="PublicDev" />
     <link rel="icon" href="/publicdev.png"/>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 </svelte:head>

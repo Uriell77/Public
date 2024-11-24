@@ -1,35 +1,29 @@
 <script>
-    import { fly } from 'svelte/transition';
-    import { quintOut } from 'svelte/easing';
-    import {onMount} from "svelte";
     import Header from "$lib/Components/Header.svelte";
-    import Logo from "$lib/images/Logo.jpg";
     import Noob from "$lib/Components/InfoNoob.svelte";
     import Flyer from "$lib/Components/Flyer.svelte";
     import Contacto from '$lib/Components/Contact.svelte';
     let load = false;
     import { page } from '$app/stores';
+  import { onMount,afterUpdate } from "svelte";
 
-    function loading(){
-        load = !load;
-    }
-    onMount(()=>{
-        setTimeout(()=>{
-            loading()},1)
-    })
+
+
+
 </script>
 
 <svelte:head>
-    <title>Public</title>
-    <meta name="description" content="Public" />
+    <title>{$page.data.path}</title>
+    <meta name="description" content="{$page.data.path}" />
+    <link rel="icon" href="/logos/{$page.data.path}logo.png"/>
 </svelte:head>
+
 
 <section>
     <Header slug ={$page.url.pathname.slice(1)}/>
 
     <div class="section p-0">
 
-        {$page.data.path}
 
         <Flyer />
 
@@ -57,10 +51,5 @@
         overflow:hidden;
     }
 
-    .footer{
-        background-color:rgba(1,1,1,.2);
-        height:10px !important;
-        mask-image: linear-gradient( transparent 0%, black 40%);
-    }
 
 </style>

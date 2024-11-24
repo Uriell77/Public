@@ -11,12 +11,12 @@
 </script>
 
 
-<nav class="navbar" role="navigation" aria-label="main navigation">
+<nav class="navbar"  aria-label="main navigation">
     <div class="navbar-brand">
 
         <Logo slug={slug} />
 
-        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample" on:click={open} >
+        <a href="\#" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample" on:click={open} >
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
@@ -30,11 +30,11 @@
                 Home
             </a>
 
-            <a class="navbar-item">
+            <a class="navbar-item" href="\#">
                 Servicios
             </a>
 
-            <a class="navbar-item">
+            <a class="navbar-item" href="\#">
                 Quienes Somos?
             </a>
 
@@ -46,7 +46,7 @@
 
 <style>
 
-    .navbar,.navbar-menu,.navbar-dropdown,.navbar-item{
+    .navbar,.navbar-menu,.navbar-item{
         background-color: rgba(1,1,1,0) !important;
     }
 

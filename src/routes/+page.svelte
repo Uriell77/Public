@@ -15,7 +15,7 @@
 				import Modal from '$lib/Components/Modal.svelte';
 				import Text from '$lib/Components/Text.svelte';
 				import { page } from '$app/stores';
-    import { invalidateAll,goto } from '$app/navigation';
+    import { goto } from '$app/navigation';
     import { fail, redirect } from "@sveltejs/kit";
 				export let form;
 
@@ -149,7 +149,7 @@ function redir(){
                         <br>
 
                         {#key form}
-                        <div on:change={redir}>
+                        <div class="is-hidden" on:change={redir}>
                             {form?.slug}
                         </div>
                         {/key}
