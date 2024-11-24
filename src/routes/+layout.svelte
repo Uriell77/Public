@@ -11,7 +11,6 @@
     <meta name="description" content="Public" />
     <link rel="icon" href="/publicdev.png"/>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </svelte:head>
 
 <div class="app">
