@@ -2,6 +2,7 @@
     import Logo from "$lib/Components/Logo.svelte";
     import { fly } from 'svelte/transition';
     import { quintOut } from 'svelte/easing';
+    export let slug;
 
     let openned = false;
     function open(){
@@ -13,7 +14,7 @@
 <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
 
-        <Logo />
+        <Logo slug={slug} />
 
         <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample" on:click={open} >
             <span aria-hidden="true"></span>

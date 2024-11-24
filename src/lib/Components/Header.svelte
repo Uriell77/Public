@@ -11,8 +11,9 @@
     import email from "$lib/images/logo-email.svg";
     import qr from "$lib/images/qr.svg";
     import qrdir from "$lib/images/qr.jpg";
+    export let slug;
 
-    $: slide = 0;
+    $: slide = 1;
 
 
     onMount(()=>{
@@ -53,13 +54,13 @@
     <section in:fly={{duration:3000, x:0, y:-500, opacity:0.5, easing:quintOut}}>
         <section class="hero is-medium is-clinic-secondary is-gradient-primary">
             <div class="hero-head">
-                <Nav />
+                <Nav slug={slug}/>
             </div>
 
             <div class="hero-body has-text-centered">
 
                 {#key slide}
-                    <img class="fond" src="src/lib/images/slide/slide{slide}.png" alt="r" in:fade={{duration:1000, easing:quintOut}} />
+                    <img class="fond" src="/headers/{slug}{slide}.png" alt="r" in:fade={{duration:1000, easing:quintOut}} />
                 {/key}
 
 

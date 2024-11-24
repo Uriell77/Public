@@ -1,78 +1,122 @@
 <script>
-    import { enhance } from '$app/forms';
-    import { scale } from 'svelte/transition';
-    import { quintOut } from 'svelte/easing';
-    import {beforeUpdate, onMount} from "svelte";
-    import Header from "$lib/Components/Header.svelte";
-    import Logo from "$lib/images/Logo.jpg";
-    import Noob from "$lib/Components/InfoNoob.svelte";
-    import Flyer from "$lib/Components/Flyer.svelte";
-    import Contacto from '$lib/Components/Contact.svelte';
-    import LogoCarga from '$lib/Components/LogoCarga.svelte';
-    import Modal from '$lib/Components/Modal.svelte';
-    export let form;
+// @ts-nocheck
+
+	import { writable } from 'svelte/store';
+				import { enhance } from '$app/forms';
+				import { scale } from 'svelte/transition';
+				import { quintOut } from 'svelte/easing';
+				import {beforeUpdate, onMount} from "svelte";
+				import Header from "$lib/Components/Header.svelte";
+				import Logo from "$lib/images/Logo.jpg";
+				import Noob from "$lib/Components/InfoNoob.svelte";
+				import Flyer from "$lib/Components/Flyer.svelte";
+				import Contacto from '$lib/Components/Contact.svelte';
+				import LogoCarga from '$lib/Components/LogoCarga.svelte';
+				import Modal from '$lib/Components/Modal.svelte';
+				import Text from '$lib/Components/Text.svelte';
+				import { page } from '$app/stores';
+    import { invalidateAll,goto } from '$app/navigation';
+    import { fail, redirect } from "@sveltejs/kit";
+				export let form;
 
 
-    let load = false;
-    let formulario = false;
-    let evalReg = false;
-    let eye = false;
-    let eye2 = false;
-    let eye3 = false;
-    let modalflag = false;
-    let mensaje = "";
-    let modalcolor = "is-primary";
-    let pass;
-    let repass;
-    $: comparacion = true;
-    
 
-    function eyechange(e){
-        console.log(e.target.id)
-        if(e.target.id == "password"){
-        eye = !eye
-        }else if(e.target.id == "repassword"){
-        eye2 = !eye2
-        }else if(e.target.id == "logpassword"){
-        eye3 = !eye3
-        }
-
-    }
-
-    function flagChange(){
-        evalReg = !evalReg;
-            setTimeout(()=>{
-    if(form?.regAnswer == 1){
-                evalReg = !evalReg;
-                formulario = !formulario;
-                modalflag = !modalflag;
-                mensaje = "Registro Exitoso";
-                modalcolor = "is-primary";
-
-        }
-            },2000)
-    }
+				let load = false;
+				let formulario = false;
+				let evalReg = false;
+				let eye = false;
+				let eye2 = false;
+				let eye3 = false;
+				let modalflag = false;
+				let mensaje = "";
+				let modalcolor = "is-primary";
+                let usuariosval = false;
 
 
-    function entrar(){
-        console.log("termino")
-    }
 
-    function cambioform(){
-        formulario = !formulario;
-    }
-    function loading(){
-        load = !load;
-    }
-    onMount(()=>{
-        setTimeout(()=>{
-            loading()},1)
-    })
+				/**
+   * @type {HTMLInputElement}
+   */
+				let pass;
+				/**
+   * @type {HTMLInputElement}
+   */
+				let repass;
+				$: comparacion = true;
+				
+
+				/**
+   * @param {{ target: { id: string; }; }} e
+   */
+				function eyechange(e){
+								console.log(e.target.id)
+								if(e.target.id == "password"){
+								eye = !eye
+								}else if(e.target.id == "repassword"){
+								eye2 = !eye2
+								}else if(e.target.id == "logpassword"){
+								eye3 = !eye3
+								}
+
+				}
+
+				function flagChange(){
+								evalReg = !evalReg;
+												setTimeout(()=>{
+				if(form?.regAnswer == 1){
+																evalReg = !evalReg;
+																formulario = !formulario;
+																modalflag = !modalflag;
+																mensaje = "Registro Exitoso";
+																modalcolor = "is-primary";
+
+								}
+												},2000)
+				}
+
+
+				function entrar(){
+								console.log("termino")
+				}
+
+				function cambioform(){
+								formulario = !formulario;
+				}
+				function loading(){
+								load = !load;
+				}
+				onMount(()=>{
+								setTimeout(()=>{
+												loading()},1)
+				})
 
 function compararpass(){
-    comparacion = pass.value == repass.value;
-    console.log(comparacion)
-    return comparacion
+				comparacion = pass.value == repass.value;
+				console.log(comparacion)
+				return comparacion
+}
+
+function usernameVal(e) {
+    if ($page.data.usuarios.includes(e.target.value)) {
+        return usuariosval = true;
+    }else{
+        usuariosval = false;
+    }
+}
+
+
+function enfocar(){
+    usuariosval = false;
+    ()=>{invalidateAll()};
+}
+
+
+function redir(){
+    if (form?.logAnswer ==="Ingresando"){
+        console.log(form?.slug)
+
+        goto( `/${form?.slug}`);
+    }
 }
 
 </script>
@@ -104,13 +148,24 @@ function compararpass(){
                         >Login</h1>
                         <br>
 
+                        {#key form}
+                        <div on:change={redir}>
+                            {form?.slug}
+                        </div>
+                        {/key}
+
                         <div class="container is-flex is-justify-content-center">
                             <figure class="image is-128x128 mb-5">
+                                {#if form?.logAnswer == "Ingresando"}
+
+                                    <LogoCarga />
+                                    {:else}
                                 <!-- svelte-ignore a11y-missing-attribute -->
                                 <img
                                     in:scale={{duration:1000, opacity:.8}}
                                     class=" is-centered is-rounded"
                                     src="publicdev.png" />
+                                {/if}
                             </figure>
                         </div>
 
@@ -122,12 +177,18 @@ function compararpass(){
                             <div class="field" 
                                 in:scale={{ duration:1000, opacity:.8}}
                             >
-                                <div class="control is-small ">
+                                <div class="control is-small  
+                                        {form?.logAnswer == "Usuario no existe"?"is-danger2":""}
+                                ">
                                     <input
-                                        class="input  is-small"
+                                        name="username"
+                                        class=" input is-small {usuariosval?"is-primary":""}
+                                        "
                                         type="text"
                                         placeholder="Usuario/Email"
                                         required
+                                        on:keyup={usernameVal}
+                                        on:focus={enfocar}
                                     />
                                 </div>
                             </div>
@@ -135,8 +196,11 @@ function compararpass(){
                             <div class="field"
                                 in:scale={{ duration:1000, opacity:.8}}
                             >
-                                <div class="control is-small ">
+                                <div class="control is-small
+                                        {form?.logAnswer == "Password Equivocado"?"is-danger2":""}
+                                ">
                                     <input
+                                        name="password"
                                         class="input  is-small"
                                         type="{eye3?"text":"password"}"
                                         placeholder="Password"
@@ -155,7 +219,7 @@ function compararpass(){
                             <div class="container is-flex is-justify-content-center pt-5">
                                 <div class="buttons">
                                     <button class="button" on:click="{cambioform}">Ir a Registro</button>
-                                    <button class="button is-primary is-light" on:click|preventDefault="{entrar}">Ingresar</button>
+                                    <button class="button is-primary is-light" type="submit">Ingresar</button>
                                 </div>
                             </div>
 
@@ -206,6 +270,10 @@ function compararpass(){
 
 
 
+
+
+
+
                             <div class="field"
                                 in:scale={{duration:1000, opacity:.8}}
                             >
@@ -242,13 +310,18 @@ function compararpass(){
                                         on:keyup={compararpass}
                                         bind:this="{pass}"
                                         name="password"
-                                        class="input  is-small "
+                                        class="input  is-small {!comparacion?"is-danger":""}"
                                         type="{eye?"text":"password"}"
                                         placeholder="Password"
                                         required
                                     />
+
+
+
                                     <!-- svelte-ignore a11y-click-events-have-key-events -->
                                     <!-- svelte-ignore a11y-no-static-element-interactions -->
+
+
                                     <span class="icon is-small is-right is-pulled-right eye is-clickable" on:click="{eyechange}">
                                         <ion-icon id="password" name="{eye?"eye-off-outli.ne": "eye-outline"}" />
                                     </span>
@@ -262,13 +335,19 @@ function compararpass(){
                                     <input
                                         on:keyup={compararpass}
                                         bind:this="{repass}"
-                                        class="input  is-small"
+                                        class="input  is-small {!comparacion?"is-danger":""}"
                                         type="{eye2?"text":"password"}"
                                         placeholder="Retype Password"
                                         required
                                     />
+
+
+
+
                                     <!-- svelte-ignore a11y-click-events-have-key-events -->
                                     <!-- svelte-ignore a11y-no-static-element-interactions -->
+
+
                                     <span class="icon is-small is-right is-pulled-right eye is-clickable" on:click="{eyechange}">
                                         <ion-icon id="repassword" name="{eye2 ?"eye-off-outline": "eye-outline"}">
                                     </span>
@@ -316,6 +395,10 @@ function compararpass(){
 
 
 <style>
+
+    .is-danger2,.is-danger2:focus{
+        background-color:rgba(200,40,40,0.3) !important;
+    }
 
 
    .passno{

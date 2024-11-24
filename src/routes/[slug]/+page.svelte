@@ -8,6 +8,7 @@
     import Flyer from "$lib/Components/Flyer.svelte";
     import Contacto from '$lib/Components/Contact.svelte';
     let load = false;
+    import { page } from '$app/stores';
 
     function loading(){
         load = !load;
@@ -24,7 +25,7 @@
 </svelte:head>
 
 <section>
-    <Header />
+    <Header slug ={$page.data.slug}/>
 
     <div class="section p-0">
 

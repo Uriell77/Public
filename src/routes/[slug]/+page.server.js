@@ -10,28 +10,20 @@ let valor;
 /** @type {import('./$types').PageServerLoad} */
 export async function load({ params, cookies }) {
     let slug = cookies.get('session');
-    if(slug){
-        redirect(307, `/${slug}`)
-    }else{
-  let usuarios = [];
   let { data: users, error } = await supabase.from("users").select("Username");
-  users.forEach((element) => {
-    usuarios.push(element.Username);
-  });
   return {
-    usuarios,
+    usuario: users,
+    slug: slug
   };
 
     }
-}
 
 
 
 
 
+/*
 
-
-/** @type {import('./$types').Actions} */
 
 
 
@@ -74,8 +66,8 @@ export const actions = {
     if(
       typeof username != 'string' ||
       typeof password != 'string' ||
-      !username ||
-      !password 
+/      !username ||
+ /     !password 
     ){
       return {logAnswer: "Formato de Credenciales Errado"}
     }
@@ -128,6 +120,6 @@ export const actions = {
       }
     }
 
-
+*/
 
 
