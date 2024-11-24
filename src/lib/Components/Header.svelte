@@ -60,7 +60,7 @@
             <div class="hero-body has-text-centered">
 
                 {#key slide}
-                    <img class="fond" src="/headers/{slug}{slide}.png" alt="r" in:fade={{duration:1000, easing:quintOut}} />
+                    <img class="fond" src="/headers/{slug}{slide}.png" loading="lazy" alt="r" in:fade={{duration:1000, easing:quintOut}} />
                 {/key}
 
 

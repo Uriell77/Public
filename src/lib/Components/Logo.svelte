@@ -8,7 +8,7 @@
 
 
         <figure class="image {tam} py-0 my-4">
-            <img class="is-rounded  py-0 my-0 " src="/logos/{slug}logo.png" alt="logo" />
+            <img class="is-rounded  py-0 my-0 " src="/logos/{slug}logo.png" alt="logo" loading="lazy"/>
         </figure>
 
 
