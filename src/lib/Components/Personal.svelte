@@ -57,8 +57,7 @@
 
   @media only screen and (min-width: 768px) {
     .hero{
-        background-color: green;
-        height:50vh;
+        max-height:50vh;
         max-width:100%;
     }
   }
