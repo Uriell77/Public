@@ -16,7 +16,7 @@
 
         <Logo slug={slug} />
 
-        <a href="\#" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample" on:click={open} >
+        <a href="" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample" on:click={open} >
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
@@ -26,15 +26,16 @@
 
     <div id="navbarBasicExample" class="navbar-menu {openned ? "is-active":""}" >
         <div class="navbar-start">
-            <a class="navbar-item" href="/">
+            <a class="navbar-item has-text-black" >
                 Home
             </a>
 
-            <a class="navbar-item" href="\#">
+            <a class="navbar-item has-text-black" href="#info">
                 Servicios
             </a>
 
-            <a class="navbar-item" href="\#">
+            <!-- svelte-ignore a11y-invalid-attribute -->
+            <a class="navbar-item has-text-black" href="javascript:void(0)">
                 Quienes Somos?
             </a>
 

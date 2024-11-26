@@ -33,6 +33,8 @@ body {
 			rgba(255, 255, 255, 0) 100%
 		),
 		linear-gradient(180deg, var(--color-bg-0) 0%, var(--color-bg-1) 15%, var(--color-bg-2) 50%);
+      scroll-behavior: smooth;
+
 }
 
 h1,
@@ -128,11 +130,11 @@ button:focus:not(:focus-visible) {
 .is-gradient-primary{
         background: hsla(225, 100%, 17%, 1);
 
-background: linear-gradient(180deg, hsla(225, 100%, 17%, 1) 0%, hsla(65, 14%, 83%, 1) 100%);
+background: linear-gradient(180deg, rgb(149, 149, 179) 0%, hsla(65, 14%, 83%, 1) 100%);
 
-background: -moz-linear-gradient(180deg, hsla(225, 100%, 17%, 1) 0%, hsla(65, 14%, 83%, 1) 100%);
+background: -moz-linear-gradient(180deg, rgb(149, 149, 179) 0%, hsla(65, 14%, 83%, 1) 100%);
 
-background: -webkit-linear-gradient(270deg, hsla(225, 100%, 17%, 1) 0%, hsla(65, 14%, 83%, 1) 100%);
+background: -webkit-linear-gradient(270deg, rgb(149, 149, 179) 0%, hsla(65, 14%, 83%, 1) 100%);
 
 }
 
@@ -141,11 +143,11 @@ background: -webkit-linear-gradient(270deg, hsla(225, 100%, 17%, 1) 0%, hsla(65,
 .is-gradient-secondary{
         background: hsla(225, 100%, 17%, 1);
 
-background: linear-gradient(180deg, hsla(225, 100%, 17%, 1) 0%, hsla(65, 14%, 83%, 1) 100%);
+background: linear-gradient(180deg, rgb(149, 149, 179) 0%, hsla(65, 14%, 83%, 1) 100%);
 
-background: -moz-linear-gradient(180deg, hsla(225, 100%, 17%, 1) 0%, hsla(65, 14%, 83%, 1) 100%);
+background: -moz-linear-gradient(180deg, rgb(149, 149, 179) 0%, hsla(65, 14%, 83%, 1) 100%);
 
-background: -webkit-linear-gradient(180deg, hsla(225, 100%, 17%, 1) 0%, hsla(65, 14%, 83%, 1) 100%);
+background: -webkit-linear-gradient(180deg, rgb(149, 149, 179) 0%, hsla(65, 14%, 83%, 1) 100%);
 
 }
 

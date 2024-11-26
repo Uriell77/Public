@@ -122,8 +122,9 @@ function redir(){
 </script>
 
 <svelte:head>
-    <title>Public</title>
-    <meta name="description" content="Public" />
+    <title>PublicDev</title>
+    <link rel="icon" href="/publicdev.png" />
+    <meta name="description" content="PublicDev" />
 </svelte:head>
 
 

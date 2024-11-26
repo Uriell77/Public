@@ -12,7 +12,14 @@ let valor;
 /** @type {import('./$types').PageServerLoad} */
 export async function load({ params, cookies }) {
     let session = cookies.get('session');
-  let { data: users, error } = await supabase.from("users").select("Username");
+  let { data: users, error } = await supabase
+  .from("users")
+  .select(`*,
+    store(
+      *
+    )
+  `)
+  .eq("Username", params.slug)
   return {
     usuario: users,
     session: session,

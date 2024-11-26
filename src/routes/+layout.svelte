@@ -3,16 +3,12 @@
     import {onMount} from "svelte";
 	import '../app.css';
 
-    $: titulo = $page.data.path;
 	
 </script>
 
 
 
 <svelte:head>
-    <title>{titulo != "undefined" ? titulo : "PublicDev"}</title>
-    <meta name="description" content="PublicDev" />
-    <link rel="icon" href="/publicdev.png"/>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 </svelte:head>
 
@@ -44,10 +40,14 @@
         display:grid;
         min-height: 100dvh;
         grid-template-rows: 1fr auto;
+        animation: all 2s;
+        scroll-behavior: smooth;
 	}
 
     main{
-        background-color: rgba(50,60,80,1);
+        background-color: rgb(255, 255, 255);
+        animation: all 2s;
+        scroll-behavior: smooth;
     }
 
 </style>

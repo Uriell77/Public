@@ -18,8 +18,8 @@
 <ul>
 {#if indice%2 == 0}
     {#key indice}
-        <li class="my-1">
-            <div  class="box is-gradient-primary is-clinic-secondary iz" in:fly|global={{duration:3000, x:-400, y:0, opacity:0.5, easing:quintOut}}>
+        <li class="my-1 info" id="info">
+            <div  class="box is-clickable is-gradient-primary is-clinic-secondary iz" in:fly|global={{duration:3000, x:-400, y:0, opacity:0.5, easing:quintOut}}>
                 <article class="media">
                     <div class="media-left">
                         <figure class="image is-64x64 ">
@@ -29,7 +29,7 @@
                     <div class="media-content">
                         <div class="content">
                             <p class="has-text-white has-text-centered pt-4">
-                                <strong class="is-font-primary">
+                                <strong class="is-font-primary is-size-6">
                                         {titulo[indice]}
                                 </strong> 
 
@@ -42,18 +42,20 @@
         {/key}
 {:else}
     {#key indice}
-        <li>
-            <div  class="box is-gradient-secondary is-clinic-secondary der" in:fly|global={{duration:3000, x:400, y:0, opacity:0.5, easing:quintOut}}>
+        <li class="my-1 info" id="info">
+            <div  class="box is-clickable is-gradient-primary is-clinic-primary der" in:fly|global={{duration:3000, x:400, y:0, opacity:0.5, easing:quintOut}}>
                 <article class="media">
                     <div class="media-left">
-                        <figure class="image is-64x64 ">
+                        <figure class="image is-64x64 is-pulled-right ">
                             <img class="is-rounded" src="{icons}" alt="Ima" />
                         </figure>
                     </div>
                     <div class="media-content">
                         <div class="content">
                             <p class="has-text-white has-text-centered pt-4">
-                                <strong class="is-font-primary">{titulo[indice]}</strong> 
+                                <strong class="is-font-primary is-size-6">
+                                    {titulo[indice]}
+                                </strong> 
                             </p>
                         </div>
                     </div>
@@ -72,19 +74,37 @@
 
 <style>
 
+    strong{
+        overflow:visible;
+    }
+
+    .ul{
+        animation: all 2s;
+
+    }
+
     .box{
+        min-height: 10rem;
         position:relative !important;
         transition: all 3s !important;
     }
     .iz{
-        left:-6% !important;
+        left:0% !important;
     }
     .der{
-        right:-6% !important;
+        right:0% !important;
     }
 
 
 
+
+    @media only screen and (max-width: 768px) {
+    .media{
+        display:grid;
+        grid-template-rows: 1fr auto;
+    }
+
+}
 
 
 </style>
