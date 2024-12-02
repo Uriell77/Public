@@ -9,16 +9,8 @@
   import Eco from "$lib/images/electro.svg";
   import Presion from "$lib/images/presion.svg";
   import Noob from "$lib/Components/Noob.svelte";
+  import {page} from '$app/stores'
 
-  let iconos = [Estetoscopio, Tubo, Geringa, Electro, Eco, Presion];
-  let titulo = [
-    "Consulta de Medicina General",
-    "Laboratorio de Urgencias",
-    "Tratamiento Ambulatorio",
-    "Electrocardiograma",
-    "Ecografia",
-    "Control de Presion Arterial",
-  ];
   let load = false;
 
   function loading() {
@@ -36,9 +28,9 @@
 Servicios
 
   <div class="columns is-centered is-multiline is-mobile">
-    {#each iconos as icon, index}
+    {#each $page.data.products as product, index}
     <div class="column is-half">
-      <Noob icons={icon} indice={index} />
+      <Noob product={product} indice={index} />
     </div>
     {/each}
   </div>

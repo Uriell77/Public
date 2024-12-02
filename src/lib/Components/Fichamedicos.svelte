@@ -5,6 +5,9 @@
 
   let load = false;
 
+  export let psinopsis;
+  export let indice;
+
   function loading() {
     load = !load;
   }
@@ -18,7 +21,7 @@
 
 {#if load}
   <div
-    class="control mx-0 ficha has-text-centered py-0 my-0 px-0 mt-0"
+    class="control mx-0 ficha has-text-centered py-0 my-0 px-0 mt-0 is-clickable"
     in:scale|global={{ duration: 3000 }}
   >
     <div class="columns is-mobile px-0 mt-0">
@@ -26,16 +29,19 @@
         <div class="section mx-0 py-2">
             <div class="block has-text-black has-text-weight-bold">nombre</div>
           <p class="container has-text-black block mx-0">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae,
-            ipsa  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-            Ullam doloremque jkkhkjhkjhkjhkjhjkhkj
-            kkklkjalkdsjlkasjdalhjlkjllkjhljhlj
+            {psinopsis}
           </p>
         </div>
       </div>
       <div class="column is-half">
+        {psinopsis}
+        {indice}
         <figure class="image p-0 m-0">
-          <img src="/publicdev.png" alt="logo" class="p-0 m-0" />
+          {#if psinopsis && indice}
+          <img src="/personal/{psinopsis}personal{indice}.png" alt="logo" class="p-0 m-0" />
+          {:else}
+          <img src="/avatar.png" alt="logo" class="p-0 m-0" />
+          {/if}
         </figure>
       </div>
     </div>

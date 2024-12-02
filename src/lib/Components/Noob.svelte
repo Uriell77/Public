@@ -8,8 +8,9 @@
     import Eco from "$lib/images/electro.svg";
     import Presion from "$lib/images/presion.svg";
 
-    let titulo = ["Consulta de Medicina General","Laboratorio de Urgencias","Tratamiento Ambulatorio","Electrocardiograma","Ecografia","Control de Presion Arterial"];
-    export let icons;
+  let iconos = [Estetoscopio, Tubo, Geringa, Electro, Eco, Presion];
+
+    export let product;
     export let indice;
 
 </script>
@@ -23,15 +24,18 @@
                 <article class="media">
                     <div class="media-left">
                         <figure class="image is-64x64 ">
-                            <img class="is-rounded" src="{icons}" alt="im" />
+                            <img class="is-rounded" src="{iconos[indice]}" alt="im" />
                         </figure>
                     </div>
                     <div class="media-content">
                         <div class="content">
                             <p class="has-text-white has-text-centered pt-4">
                                 <strong class="is-font-primary is-size-6">
-                                        {titulo[indice]}
+                                        {product.productname}
                                 </strong> 
+
+                                <br>
+                                {product.productdescription}
 
                             </p>
                         </div>
@@ -47,15 +51,17 @@
                 <article class="media">
                     <div class="media-left">
                         <figure class="image is-64x64 is-pulled-right ">
-                            <img class="is-rounded" src="{icons}" alt="Ima" />
+                            <img class="is-rounded" src="{iconos[indice]}" alt="Ima" />
                         </figure>
                     </div>
                     <div class="media-content">
                         <div class="content">
                             <p class="has-text-white has-text-centered pt-4">
                                 <strong class="is-font-primary is-size-6">
-                                    {titulo[indice]}
+                                    {product.productname}
                                 </strong> 
+                                <br>
+                                {product.productdescription}
                             </p>
                         </div>
                     </div>
@@ -84,7 +90,7 @@
     }
 
     .box{
-        min-height: 10rem;
+        min-height: 15rem;
         position:relative !important;
         transition: all 3s !important;
     }

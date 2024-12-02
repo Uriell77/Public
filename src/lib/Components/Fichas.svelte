@@ -43,7 +43,7 @@
     .ficha{
         background-color: rgb(149, 149, 179);
         border-radius: 10px;
-        width:25%;
+        max-width:35vw;
         height:15vh;
 
     }

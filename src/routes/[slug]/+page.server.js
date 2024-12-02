@@ -20,10 +20,23 @@ export async function load({ params, cookies }) {
     )
   `)
   .eq("Username", params.slug)
+
+
+  console.log(users[0].store.id)
+
+  let{data: product} = await supabase
+  .from("products")
+  .select("*")
+  .eq("productstoreid", users[0].store.id)
+
+
+  console.log(product)
+
   return {
     usuario: users,
     session: session,
-    path: params.slug
+    path: params.slug,
+    products: product
   };
 
     }

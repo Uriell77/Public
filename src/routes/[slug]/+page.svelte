@@ -22,17 +22,11 @@
 
 
 
-<div class="columns is-centered is-mobile">
-    <div class="column is-full-mobile is-full-tablet is-full-desktop">
 
-
-
-
-
-<section class="mx-0">
+<section class="mx-0 mb-6 fondo">
     <Header slug ={$page.url.pathname.slice(1)} storetext={$page.data.usuario[0].store}/>
 
-    <div class="section p-0 mb-0">
+    <div class="section p-0 mb-0 container">
 
 
 
@@ -60,14 +54,17 @@
 
 
 
-    </div>
-</div>
 
 
 
 
 
 <style>
+
+    .fondo{
+        background-color: rgb(149, 162, 175);
+        min-height:100%;
+    }
 
     .doctores{
         max-width:100vw;
