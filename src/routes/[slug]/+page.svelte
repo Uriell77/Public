@@ -43,7 +43,7 @@
 
     <div class="container mt-0 p-4 doctores">
 
-        <Personal titulo="Personal Medico"/>
+        <Personal titulo="Quienes Somos?"/>
 
     </div>
 

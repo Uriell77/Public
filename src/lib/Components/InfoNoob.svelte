@@ -27,7 +27,7 @@
 <div class="section p-0 mx-0 has-text-black has-text-weight-bold" transition:scale={{duration:3000, easing:quintOut}}>
 Servicios
 
-  <div class="columns is-centered is-multiline is-mobile">
+  <div class="columns  is-multiline is-mobile">
     {#each $page.data.products as product, index}
     <div class="column is-half">
       <Noob product={product} indice={index} />
