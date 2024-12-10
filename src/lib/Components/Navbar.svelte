@@ -26,7 +26,7 @@
 
     <div id="navbarBasicExample" class="navbar-menu {openned ? "is-active":""}" >
         <div class="navbar-start">
-            <a class="navbar-item has-text-black" >
+            <a class="navbar-item has-text-black" href="#home">
                 Home
             </a>
 
@@ -35,7 +35,7 @@
             </a>
 
             <!-- svelte-ignore a11y-invalid-attribute -->
-            <a class="navbar-item has-text-black" href="javascript:void(0)">
+            <a class="navbar-item has-text-black" href="#quienes">
                 Quienes Somos?
             </a>
 

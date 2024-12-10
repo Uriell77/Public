@@ -17,12 +17,6 @@
 	<main class="mb-0 mx-0">
 		<slot />
 	</main>
-    <footer class="hero is-small is-black py-3 mt-0 my-0">
-        <block class="container has-text-centered is-size-7">
-            PublicDev Desarrollado por Luis Hermoso
-        </block>
-
-    </footer>
 </div>
 
 

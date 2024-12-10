@@ -1,4 +1,5 @@
 <script>
+	import { redirect } from '@sveltejs/kit';
 	import { onMount } from 'svelte';
 	import { scale,fly } from 'svelte/transition';
   import { quintOut } from 'svelte/easing';
@@ -15,57 +16,61 @@
         setTimeout(()=>{
             loading()},1)
     });
+
+
+    let url = `/flyer/${$page.data.path}flyer${flyers}.jpg`;
+
+    $: bgimage = `background-image: url("${url}");`;
     </script>
 
 
 {#if load}
-            <div class="control mx-0 ficha has-text-centered py-0 my-0" in:scale|global={{duration:3000}}>
-                    <figure class="image  p-0 m-0">
-                        <img src="/flyer/{$page.data.path}flyer{flyers}.jpg" alt="logo" class="p-0 m-0 is-clickable"/>
-                    </figure>
-            </div>
+<div class="card mx-2">
+    <div class="card-header">ter</div>
+    <div class="card-content container" style="{bgimage}">
+    </div>
+</div>
 {/if}
 
 <style>
-    img{
-        max-height:14vh;
-    }
-
-
-    .image{
-        position:relative;
-        width:90%;
-        top: 50%;
-        left: 50%;;
-        transform:translate(-50%, -50%);
-    }
-
-    .ficha{
+    
+   .card-content{
+    background-color: red;
+    height: 30vh;
+    width: 30vw;
+    background-size: cover;
+    background-repeat: none;
+    background-attachment:local;
+   } 
+    .card{
+        color:black;
         background-color: rgb(149, 149, 179);
-        border-radius: 10px;
-        max-width:35vw;
-        height:15vh;
-
+        max-height:content;
+        min-width: 35%;
     }
 
 
-
-    @media only screen and (min-width: 768px) {
-    .image{
-        position:relative;
-        width:90%;
-        top: 50%;
-        left: 50%;
-        transform:translate(-50%, -50%);
+   @media only screen and (min-width: 768px){
+    .card{
+        color:black;
+        background-color: rgb(149, 149, 179);
+        max-height:content;
+        min-width: 10vw;
     }
 
-    .ficha{
-        background-color: rgba(200, 200, 250, .6);
-        border-radius: 10px;
-        width:10%;
-        height:170px;
+   .card-content{
+    background-color: red;
+    height: 30vh;
+    width: 10vw;
+    background-size: cover;
+    background-repeat: none;
+    background-attachment:local;
+   } 
 
-    }
-}
+   } 
+
+
+
+
 /* your styles go here */
 </style>

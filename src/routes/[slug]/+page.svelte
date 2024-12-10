@@ -23,25 +23,31 @@
 
 
 
-<section class="mx-0 mb-6 fondo">
+<section class="mx-0 mb-6 fondo px-0" id="home">
+
     <Header slug ={$page.url.pathname.slice(1)} storetext={$page.data.usuario[0].store}/>
 
-    <div class="section p-0 mb-0 container">
+    <br><br><br><br><br>
 
-
+    <div class="section p-2 mb-6 container promo has-text-black">
+        Promociones
 
         <Cinto titulo="Promociones"/>
 
     </div>
 
-    <div class="container mt-0 p-4">
+    <br><br><br><br>
+
+    <div class="container mt-6 p-4 mb-6" id="info">
 
         <Noob />
 
     </div>
 
+    <br><br><br><br>
+    <br><br><br><br>
 
-    <div class="container mt-0 p-4 doctores">
+    <div class="container mt-6 p-4 doctores" id="quienes">
 
         <Personal titulo="Quienes Somos?"/>
 
@@ -60,6 +66,10 @@
 
 
 <style>
+
+    .promo{
+        max-height: 30vh;
+    }
 
     .fondo{
         background-color: rgb(149, 162, 175);

@@ -24,9 +24,8 @@
 
 
 {#if load}
-<div class="hero section py-1 m-0 mb-0" transition:scale={{duration:3000, easing:quintOut}}>
-    <span class="has-text-weight-bold p-1 has-text-black">{titulo}</span>
-    <div class="field is-grouped slider pb-5" >
+<div class="hero  py-1 m-0 mb-0" transition:scale={{duration:3000, easing:quintOut}}>
+    <div class="hero-content is-flex is-flex-align-center" >
         {#each usuarios as usuario,index}
             <Ficha flyers={index+1}/>
         {/each}
@@ -37,18 +36,14 @@
 <style>
 
     .hero{
-        max-width:100vw;
+        max-width:95vw;
         overflow: hidden;
+        overflow-x: scroll;
+        scrollbar-color: #71718a #9595B3;
+        
     }
+   /* .hero::-webkit-scrollbar{
+    }*/
 
-
-    .slider{
-        overflow: auto;
-        white-space: nowrap;
-    }
-    
-    .slider::-webkit-scrollbar{
-        display: none;
-    }
 
 </style>

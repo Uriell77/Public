@@ -52,7 +52,7 @@
   <section
     in:fly={{ duration: 3000, x: 0, y: -500, opacity: 0.5, easing: quintOut }}
   >
-    <section class="hero is-mediumt is-clinic-secondary is-gradient-primary">
+    <section class="hero is-medium is-clinic-secondary is-gradient-primary">
       <div class="hero-head">
         <Nav {slug} />
       </div>

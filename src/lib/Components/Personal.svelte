@@ -43,15 +43,19 @@
 
 
     .slider{
-        overflow: auto;
+        overflow-x: auto;
         white-space: nowrap;
         width:100%;
         scroll-snap-type: x proximity;
+        scrollbar-color: #71718a #9595B3;
+        scrollbar-arrow-color: red blue;
     }
-    
+   
+    /*
     .slider::-webkit-scrollbar{
         display: none;
     }
+        */
 
 
 
@@ -60,14 +64,6 @@
         max-height:50vh;
         max-width:100vw;
     }   
-    .slider{
-        overflow: scroll !important;
-        height:100%;
-        width:100%;
-    }
-    .slider::-webkit-scrollbar{
-        display: block;
-    }
   }
 
 </style>
