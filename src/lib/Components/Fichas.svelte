@@ -77,7 +77,7 @@
     background: linear-gradient(
       180deg,
       #a4a0a0 0%,
-      #b8b6b6 75.71%,
+      #b8b6b6 98%,
       #e3dede 105%
     );
   }
@@ -116,6 +116,7 @@
     } 
 
   .cards {
+    box-shadow: black 0px 2px 3px;
     width: 25dvw;
     height: 15dvh;
     border-radius: 10px;
@@ -124,7 +125,7 @@
     background: linear-gradient(
       180deg,
       #a4a0a0 0%,
-      #b8b6b6 75.71%,
+      #b8b6b6 98%,
       #e3dede 105%
     );
   }
