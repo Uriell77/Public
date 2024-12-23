@@ -15,7 +15,39 @@
 </script>
 
   {#key indice}
-      <div
+
+
+
+<div class="servicard is-clickable">
+  
+  <div class="columns is-mobile">
+    <div class="column is-3 is-align-content-center">
+      <figure class="image">
+        <img src="{iconos[indice]}" alt="t" class="is-centered"/>
+      </figure>
+    </div>
+    <div class="column">
+      <section class="section is-size-4 is-font-primary pb-4">
+        {product.productname}
+        
+      </section>
+      <section class="section subtitle has-text-black px-0 pt-0 mt-0">
+        {product.productdescription}
+
+      </section>
+
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+<!-- 
+  
+<div
         class="card is-shadowless is-clickable  is-gradient-primary is-clinic-secondary iz has-text-centered"
         in:fly|global={{
           duration: 3000,
@@ -27,7 +59,6 @@
       >
         <div class="card-image p-5 m-0">
           <figure class="image is-4by3">
-            <!-- svelte-ignore a11y-img-redundant-alt -->
             <img src={iconos[indice]} alt="ima" />
           </figure>
         </div>
@@ -45,6 +76,11 @@
           </div>
         </div>
       </div>
+
+    -->
+
+
+
   {/key}
 
 
@@ -52,8 +88,12 @@
 
 <style>
 
-  .card{
+
+  .servicard{
     min-width: 100%;
+    min-height:20vh;
+    background-color: #9595B3;
+    border-radius: 30px;
   }
 
 

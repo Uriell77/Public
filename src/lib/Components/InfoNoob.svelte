@@ -24,12 +24,12 @@
 </script>
 
 {#if load}
-<div class="section p-3 mx-0 has-text-black has-text-weight-bold" transition:scale={{duration:3000, easing:quintOut}}>
+<div class="section p-3 mx-0 has-text-black has-text-weight-bold title servicios" transition:scale={{duration:3000, easing:quintOut}}>
 Servicios
-
-  <div class="columns  is-multiline is-mobile is-centered ">
+<hr class="barra">
+  <div class="columns  is-multiline is-mobile is-centered pt-3">
     {#each $page.data.products as product, index}
-    <div class="column is-half-mobile is-4-desktop is-flex px-3">
+    <div class="column is-full-mobile is-4-desktop is-flex px-3">
       <Noob product={product} indice={index} />
     </div>
     {/each}
@@ -41,4 +41,15 @@ Servicios
 
 <style>
 
+  .servicios{
+    border-style: solid;
+    border-radius: 30px;
+    border-color: rgba(1,1,1,.1);
+  }
+
+
+  .barra{
+    background-color: rgba(1,1,1,.1);
+
+  }
 </style>

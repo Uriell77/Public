@@ -27,16 +27,14 @@
 
     <Header slug ={$page.url.pathname.slice(1)} storetext={$page.data.usuario[0].store}/>
 
-    <br><br><br><br><br>
 
-    <div class="section p-2 mb-6 container promo has-text-black">
-        Promociones
+    <div class=" p-2 mb-6 container  has-text-black ">
 
         <Cinto titulo="Promociones"/>
 
     </div>
 
-    <br><br><br><br>
+<br><br><br><br>
 
     <div class="container mt-6 p-4 mb-6" id="info">
 
@@ -44,8 +42,7 @@
 
     </div>
 
-    <br><br><br><br>
-    <br><br><br><br>
+<br><br><br><br>
 
     <div class="container mt-6 p-4 doctores" id="quienes">
 
@@ -68,11 +65,15 @@
 <style>
 
     .promo{
-        max-height: 30vh;
+        max-width: 97%;
+        max-height: 35vh;
+    border-style: solid;
+    border-radius: 30px;
+    border-color: rgba(1,1,1,.1);
     }
 
     .fondo{
-        background-color: rgb(149, 162, 175);
+        background-color: #E3DEDE;
         min-height:100%;
     }
 

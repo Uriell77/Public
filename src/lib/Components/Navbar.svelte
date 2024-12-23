@@ -14,7 +14,7 @@
 <nav class="navbar"  aria-label="main navigation">
     <div class="navbar-brand">
 
-        <Logo slug={slug} />
+        <Logo slug={slug} tam="is-128x128 "/>
 
         <a href="" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample" on:click={open} >
             <span aria-hidden="true"></span>

@@ -38,7 +38,7 @@
 	}
 
     main{
-        background-color: rgb(42, 63, 68);
+        background-color: #E3DEDE;
         animation: all 2s;
     }
 

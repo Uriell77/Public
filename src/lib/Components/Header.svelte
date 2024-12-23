@@ -1,4 +1,5 @@
 <script>
+  import dra from "$lib/images/headers/dra.png";
   import { onMount } from "svelte";
   import { fly, fade } from "svelte/transition";
   import { quintOut } from "svelte/easing";
@@ -13,6 +14,9 @@
   import qrdir from "$lib/images/qr.jpg";
   export let slug;
   export let storetext;
+
+  let url = `url("${dra}")`;
+  console.log(url);
 
   $: slide = 1;
 
@@ -52,89 +56,115 @@
   <section
     in:fly={{ duration: 3000, x: 0, y: -500, opacity: 0.5, easing: quintOut }}
   >
-    <section class="hero is-medium is-clinic-secondary is-gradient-primary">
+    <div class="hero cabeza is-medium">
       <div class="hero-head">
         <Nav {slug} />
       </div>
 
-      <div class="hero-body has-text-centered">
-        {#key slide}
-          <img
-            class="fond"
-            src="/headers/{slug}{slide}.png"
-            loading="lazy"
-            alt="r"
-            in:fade={{ duration: 1000, easing: quintOut }}
-          />
-        {/key}
+      <div class="hero-body has-text-centered p-0">
 
-        <div class="container has-text-centered titulo">
-          <h1 class="oswald-title is-size-1">
-            {storetext.storename}
-          </h1>
-          <p class="subtitle has-text-black mt-5 is-size-6">
-            {storetext.storequote}
-          </p>
+        <div class="columns is-centered is-mobile p-0 m-0">
+
+          <div class="column is-3-desktop is-6-mobile p-0 column1">
+            <figure class="image vistafront is-3by4 p-0 m-0">
+              <img src={dra} alt="dra" class="" />
+            </figure>
+          </div>
+
+          <div class="column p-0 is-half-mobile column2 has-text-centered">
+              <div class="has-text-centered p-2 oswald-title">
+                <h1 class="titulo block has-text-weight-bold">
+                  {storetext.storename}
+                </h1>
+                <p class="subtitle has-text-black mt-5 is-size-6 frase p-0">
+                  {storetext.storequote}
+                </p>
+              </div>
+            </div>
+
         </div>
       </div>
-    </section>
+    </div>
   </section>
 {/if}
 
 <style>
   @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Titan+One&display=swap");
 
+  /*lunacy*/
+
+  .subtitle{
+    font-family: "Titan", bold;
+  }
+  .titulo{
+    font-size: 200%;
+    font-family: "Oswald", bold;
+  background: linear-gradient(180deg, #002c8a 0%, #6565ed 71.79%, #c251ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-blend-mode: normal;
+  color: #1400ca;
+  font-weight: 400;
+  text-align: center;
+}
+
+  .column1{
+    align-items: center;
+    justify-content: center;
+  }
+  .column2{
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .image{
+    position: relative;
+    transform:scale(130%);
+    top:-20%;
+  }
+
+  .vistafront {
+    mask-image: linear-gradient(black 90%, transparent 100%);
+    background-blend-mode: normal;
+  }
+
+  .cabeza {
+    background: rgb(14, 13, 13);
+    background: linear-gradient(
+      180deg,
+      #a4a0a0 0%,
+      #b8b6b6 41.53%,
+      #e3dede 98%
+    ) !important;
+    background-blend-mode: normal !important;
+    height:40% !important;
+  }
+
   .oswald-title {
+    background: linear-gradient(
+      180deg,
+      #002c8a 0%,
+      #6565ed 71,
+      79%,
+      #c251ff 100%
+    );
+    background-blend-mode: normal;
+    color: #1400ca;
     font-family: "Oswald", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 700;
-    font-style:normal;
-    color: rgb(3, 6, 98);
-    text-shadow: 1px 5px 12px;
+    font-weight: 50%;
+    text-align: center;
+    justify-content: center;
+    position: relative;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
   }
 
-  .subtitle {
-    text-shadow: 1px 5px 12px black;
+  .hero{
+    max-height: 30% !important;
   }
 
-  @media only screen and (max-width: 768px) {
-    .fond {
-      position: absolute !important;
-      top: -15% !important;
-      right: 0%;
-      height: 70% !important;
-      width: 50% !important;
-      mask-image: radial-gradient(black 40%, transparent) !important;
-      filter: opacity(20%) !important;
-      mask-size: cover !important;
-      mask-repeat: no-repeat;
-      mask-position: center !important;
-    }
-  }
 
-  .fond {
-    position: absolute !important;
-    top: 0%;
-    right: 0%;
-    height: 100%;
-    width: 50%;
-    mask-image: radial-gradient(black 40%, transparent);
-    filter: opacity(20%);
-    mask-size: cover;
-    mask-repeat: no-repeat;
-    mask-position: center;
-  }
 
-  big {
-    color: var(--color-clinic-primary);
-    font-size: 48px;
-  }
-
-  section {
-    border-radius: 0px 0px 20px 20px;
-  }
-
-  .hero {
-    mask-image: linear-gradient(black 95%, transparent);
-  }
 </style>

@@ -25,7 +25,8 @@
 
 {#if load}
 <div class="hero  section py-1 m-0 px-2 mb-0" transition:scale={{duration:3000, easing:quintOut}}>
-    <span class="has-text-weight-bold p-1 has-text-black mb-0">{titulo}</span>
+    <span class="has-text-weight-bold p-1 has-text-black mb-0 title">{titulo}</span>
+    <hr class="barra" />
     <div class="field is-grouped slider pb-0 mt-0" >
         {#each usuarios as usuario,index}
             <Fichamedicos psinopsis="{$page.data.path}" indice="{index + 1}"/>
@@ -36,19 +37,31 @@
 
 <style>
 
+.hero{
+    border-style: solid;
+    border-radius: 30px;
+    border-color: rgba(1,1,1,.1);
+  }
+
+  .barra{
+    background-color: rgba(1,1,1,.1);
+    z-index: 1;
+
+  }
+
     .hero{
-        max-height:40vh;
+        max-height:48vh;
         max-width:100vw;
     }
 
 
     .slider{
         overflow-x: auto;
+        overflow-y:hidden;
         white-space: nowrap;
         width:100%;
         scroll-snap-type: x proximity;
         scrollbar-color: #71718a #9595B3;
-        scrollbar-arrow-color: red blue;
     }
    
     /*
