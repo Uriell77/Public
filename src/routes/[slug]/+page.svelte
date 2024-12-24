@@ -28,7 +28,7 @@
     <Header slug ={$page.url.pathname.slice(1)} storetext={$page.data.usuario[0].store}/>
 
 
-    <div class=" p-2 mb-6 container  has-text-black ">
+    <div class=" py-2 px-0 mb-6 container  promo has-text-black ">
 
         <Cinto titulo="Promociones"/>
 
@@ -65,11 +65,9 @@
 <style>
 
     .promo{
-        max-width: 97%;
+        max-width: 100%;
         max-height: 35vh;
-    border-style: solid;
     border-radius: 30px;
-    border-color: rgba(1,1,1,.1);
     }
 
     .fondo{

@@ -23,7 +23,7 @@
 
 {#if load}
 
-<section class="section px-2 py-0">
+<section class="section px-1 py-0 ">
     <p class="titulo pb-6 mb-2">
         Servicios
     </p>
@@ -53,44 +53,46 @@
 
     @media only screen and (min-width: 768px){
     .section{
-        max-width: 98dvw;
-        overflow: hidden;
+        max-width: 100vw;
         z-index: 1000;
         min-height:10vh;
     }
     .slide{
         top:-15px;
         position: relative;
-        max-width: 95vw;
-        overflow: hidden;
+        max-width: 100vw;
         z-index: 1;
         min-height:40vh;
-
-
+        background-color: red;
+        overflow-y:hidden;
     }
+
 
     }
 
     .section{
-        max-width: 95dvw;
-        overflow: hidden;
+        max-width: 100vw;
         z-index: 1000;
     }
 
     .slide{
         top:-15px;
         position: relative;
-        max-width: 95vw;
-        overflow: hidden;
+        max-width: 100vw;
         overflow-x: scroll;
-        scrollbar-color: #71718a #9595B3;
         z-index: 1;
-        height:20dvh;
+        height:18dvh;
 
 
     }
 
 
+    .slide::-webkit-scrollbar {
+    display: none;
+}
+    .section::-webkit-scrollbar {
+    display: none;
+}
 
 
 .titulo {

@@ -22,16 +22,15 @@
 </script>
 
 {#if load}
-        <div class="column mx-1 is-2-desktop has-text-centered">
-  <div class="cards is-clickable is-justify-content-space-between">
-    <div class="image">
+        <div class="column mx-1 is-2-desktop is-2-tablet has-text-centered">
+  <div class="cards is-clickable px-3">
+    <div class="image my-0">
       <img src="/logos/{iconos[indice]}.png" alt="" />
     </div>
-
-    <p class="block producto">
-      {product.productname}
-    </p>
-  </div>
+  <div class="producto py-0 my-0 is-size-7-mobile is-size-4-desktop">
+    {product.productname}
+</div>
+</div>
         </div>
 {/if}
 
@@ -59,7 +58,7 @@
     @media only screen and (min-width: 768px){
 
         .column{
-            padding: 0px;
+            padding: 2px;
             margin: 0px;
         }
 
@@ -93,24 +92,12 @@
     background-blend-mode: normal;
   }
   .producto {
-    position: relative;
-    left: 0px;
-    top: -140px;
-    background: linear-gradient(
-      180deg,
-      #002c8a 0%,
-      #6565ed 71.79%,
-      #c251ff 100%
-    );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-    background-blend-mode: normal;
-    color: #1400ca;
-    font-size: 92px;
-    text-align: center;
-    z-index: 1000;
-    transform:translate(0%, 800%);
-    transform:scale(140%);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-0%, 38%);
+    height:100%;
+    width:100%;
   }
  
     } 
@@ -155,7 +142,6 @@
     background-blend-mode: normal;
     color: #1400ca;
     font-family: Kreon;
-    font-size: 12px;
     text-align: center;
   }
 

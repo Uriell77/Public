@@ -106,6 +106,7 @@
   color: #1400ca;
   font-weight: 400;
   text-align: center;
+  text-shadow: rgba(1,1,1,.4) 0px  2px  2px;
 }
 
   .column1{
@@ -134,8 +135,8 @@
     background: linear-gradient(
       180deg,
       #a4a0a0 0%,
-      #b8b6b6 41.53%,
-      #e3dede 98%
+      #878383 50.53%,
+      #e3dede 100%
     ) !important;
     background-blend-mode: normal !important;
     height:40% !important;
@@ -144,10 +145,9 @@
   .oswald-title {
     background: linear-gradient(
       180deg,
-      #002c8a 0%,
-      #6565ed 71,
-      79%,
-      #c251ff 100%
+      #000000 0%,
+      #000037 71.79%,
+      #380652 150%
     );
     background-blend-mode: normal;
     color: #1400ca;
@@ -159,12 +159,28 @@
     top:50%;
     left:50%;
     transform:translate(-50%,-50%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   }
 
   .hero{
     max-height: 30% !important;
   }
 
+
+    @media only screen and (min-width: 768px){
+  .titulo{
+    font-size: 400%;
+    font-family: "Oswald", bold;
+  background: linear-gradient(180deg, #002c8a 0%, #2929a0 50.79%, #8b2ebe 80%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #1400ca;
+  font-weight: 400;
+  text-align: center;
+  text-shadow: rgba(1,1,1,.1) 0px  7px  2px;
+}
+    }
 
 
 </style>
