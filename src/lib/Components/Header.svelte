@@ -107,6 +107,7 @@
   font-weight: 400;
   text-align: center;
   text-shadow: rgba(1,1,1,.4) 0px  2px  2px;
+    filter: contrast(140%);
 }
 
   .column1{

@@ -28,15 +28,14 @@
     <Header slug ={$page.url.pathname.slice(1)} storetext={$page.data.usuario[0].store}/>
 
 
-    <div class=" py-2 px-0 mb-6 container  promo has-text-black ">
+    <div class=" py-2 px-0 mb-2 container  promo has-text-black ">
 
         <Cinto titulo="Promociones"/>
 
     </div>
 
-<br><br><br><br>
 
-    <div class="container mt-6 p-4 mb-6" id="info">
+    <div class="container mt-2 p-4 mb-6" id="info">
 
         <Noob />
 

@@ -19,6 +19,7 @@
     .image{
         height:65px;
         width: 65px;
+    filter: contrast(140%);
     }
 
 

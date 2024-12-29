@@ -22,16 +22,16 @@
 </script>
 
 {#if load}
-        <div class="column mx-1 is-2-desktop is-2-tablet has-text-centered">
-  <div class="cards is-clickable px-3">
-    <div class="image my-0">
-      <img src="/logos/{iconos[indice]}.png" alt="" />
+  <div class="column mx-1 is-2-desktop is-3-tablet has-text-centered">
+    <div class="cards is-clickable my-4">
+      <div class="image my-0">
+        <img src="/logos/{iconos[indice]}.png" alt="" />
+      </div>
+      <div class="producto py-0 my-0 is-size-7-mobile is-size-4-desktop">
+          {product.productname}
+      </div>
     </div>
-  <div class="producto py-0 my-0 is-size-7-mobile is-size-4-desktop">
-    {product.productname}
-</div>
-</div>
-        </div>
+  </div>
 {/if}
 
 <style>
@@ -55,66 +55,48 @@
 
     
     */
-    @media only screen and (min-width: 768px){
+  @media only screen and (min-width: 768px) {
+    .cards {
+      max-width: 100%;
+      min-height: 35dvh;
+      border-radius: 10px;
+      background-blend-mode: normal;
+      background: linear-gradient(
+        180deg,
+        #a4a0a0 0%,
+        #b8b6b6 98%,
+        #e3dede 105%
+      );
+    }
 
-        .column{
-            padding: 2px;
-            margin: 0px;
-        }
-
-
+    .image {
+      position: relative;
+      left: 50%;
+      top: -14px;
+      transform: translate(-50%, -0%);
+      max-width: 6dvw;
+      max-height: 10dvh;
+      border-radius: 30px;
+      background-blend-mode: normal;
+    }
+    .producto {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-0%, 38%);
+      height: 100%;
+      width: 100%;
+    }
+  }
 
   .cards {
-    position: relative;
-    top:50%;
-    left:50%;
-    transform: translate(-50%,-50%);
-    max-width: 100%;
-    min-height: 35dvh;
-    border-radius: 10px;
-    background-blend-mode: normal;
-    background: linear-gradient(
-      180deg,
-      #a4a0a0 0%,
-      #b8b6b6 98%,
-      #e3dede 105%
-    );
-  }
-
-  .image {
-    position: relative;
-    left: 50%;
-    top: -14px;
-    transform: translate(-50%, -0%);
-    max-width: 6dvw;
-    max-height: 10dvh;
-    border-radius: 30px;
-    background-blend-mode: normal;
-  }
-  .producto {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-0%, 38%);
-    height:100%;
-    width:100%;
-  }
- 
-    } 
-
-  .cards {
-    box-shadow: black 0px 2px 3px;
+    box-shadow: rgba(58, 51, 130, 0.555) 0px 3px 4px;
     width: 25dvw;
     height: 15dvh;
     border-radius: 10px;
     background-blend-mode: normal;
     background-color: green;
-    background: linear-gradient(
-      180deg,
-      #a4a0a0 0%,
-      #b8b6b6 98%,
-      #e3dede 105%
-    );
+    background: linear-gradient(180deg, #a4a0a0 0%, #b8b6b6 98%, #e3dede 105%);
   }
 
   .image {
@@ -136,13 +118,14 @@
       #002c8a 0%,
       #6565ed 71.79%,
       #c251ff 100%
-    );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+      );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     background-blend-mode: normal;
     color: #1400ca;
     font-family: Kreon;
     text-align: center;
+    filter: contrast(400%);
   }
 
   /*
