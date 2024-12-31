@@ -1,4 +1,6 @@
 <script>
+// @ts-nocheck
+
   import { onMount } from "svelte";
   import { fly,scale,slide } from "svelte/transition";
   import { quintOut } from "svelte/easing";
@@ -10,12 +12,21 @@
   import Presion from "$lib/images/presion.svg";
   import Noob from "$lib/Components/Noob.svelte";
   import {page} from '$app/stores'
+  import emblaCarouselSvelte from 'embla-carousel-svelte';
 
+
+
+  let t=false;
+  let pru;
   let flyers = [1,2,3,4,5];
+
+
+
   $: item = 0;
 
   let load = false;
   let pagina = $page.data.path;
+  let options = {loop:true};
 
   function loading() {
     load = !load;
@@ -27,6 +38,10 @@
   });
 
 
+function tec(e){
+  pru = e.x
+  //console.log(e)
+}
 
 function prev(){
   item = (item - 1 + flyers.length) % flyers.length;
@@ -34,6 +49,16 @@ function prev(){
 
 function next(){
   item = (item + 1) % flyers.length;
+}
+
+
+function ter(e){
+  if(pru - e.x < 0 ){
+    prev()
+  }else if(pru - e.x > 0){
+    next()
+  }
+   
 }
 </script>
 
@@ -45,21 +70,44 @@ function next(){
 
 
     <div class="columns is-centered is-mobile mt-6">
-      <div class="column is-11-mobile is-half-desktop">
+      <div class="column is-full-mobile is-half-desktop">
 
 
-        <div class="box is-hidden-desktop is-fullwidth">
+        <div class="box  is-fullwidth">
 
           <div class="columns">
 
             
             <div class="column is-fullwidth">
 
-              {#key item}
+
+
+              
+              <div class="embla" use:emblaCarouselSvelte="{{options}}">
+
+                  <div class="embla__container">
+                    {#each flyers as fly}
+
+                    <div class="embla__slide">
+                      
+
+                        <figure class="image is-2by3 is-covered"
+                        in:scale={{duration:500, easing:quintOut}}
+                        >
+                        <img src="/flyer/{pagina}flyer{fly}.jpg" alt="flyer" />
+                      </figure>
+                    </div>
+                    {/each}
+                  </div>
+                </div>
+
+              <!-- 
+                {#key item}
                 
-              <figure class="image is-2by3 is-covered"
-              in:slide={{duration:1000, axis: "x", easing:quintOut}}
-              out:slide={{duration:1000, axis:"x", easing:quintOut}}
+                <figure class="image is-2by3 is-covered"
+                in:scale={{duration:500, easing:quintOut}}
+                on:pointerenter={tec}
+                on:pointermove={ter}
               >
                 <img src="/flyer/{pagina}flyer{item+1}.jpg" alt="flyer">
               </figure>
@@ -68,10 +116,8 @@ function next(){
               
             </div>
 
-            <div class="buttons">
-              <button class="button" on:click={prev}>Prev</button>
-              <button class="button" on:click={next}>Next</button>
-            </div>
+              <button class="button button1" on:click={prev}>Prev</button>
+              <button class="button button2" on:click={next}>Next</button>
             {item}
           </div>
         </div>
@@ -82,6 +128,7 @@ function next(){
           </div>
         </div>
 
+        -->
       </div>
     </div>
 
@@ -110,6 +157,38 @@ function next(){
 
 <style>
 
+.embla {
+    overflow: hidden;
+  }
+  .embla__container {
+    display: flex;
+  }
+  .embla__slide {
+    flex: 0 0 100%;
+    min-width: 0;
+  }
+
+
+
+  .box{
+    background-color: rgba(1,1,1,0);
+  }
+
+
+  .button{
+    position:absolute !important ;
+    background-color: red;
+    top:50%;
+    height:50px;
+  }
+
+
+  .button1{
+    left:5%;
+  }
+  .button2{
+    right:5%;
+  }
 
   .titulo {
     left: 0px;
@@ -126,12 +205,31 @@ function next(){
 
 
 
+
   
   @media only screen and (min-width: 768px) {
 
     .section{
       margin-top: 140px;
     }
+
+
+  .button{
+    position:absolute !important ;
+    background-color: red;
+    top:50%;
+    height:50px;
+  }
+
+
+  .button1{
+    left:25%;
+  }
+  .button2{
+    right:25%;
+  }
+
+
   }
 
 

@@ -25,6 +25,7 @@
 		"@fontsource/alice": "^5.0.13",
 		"@supabase/supabase-js": "^2.46.0",
 		"bulma": "^1.0.1",
-		"dotenv": "^16.4.5"
+		"dotenv": "^16.4.5",
+		"embla-carousel-svelte": "^8.5.1"
 	}
 }
