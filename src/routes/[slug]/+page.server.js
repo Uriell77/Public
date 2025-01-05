@@ -22,7 +22,7 @@ export async function load({ params, cookies }) {
   .eq("Username", params.slug)
 
 
-  console.log(users[0].store.id)
+ // console.log(users[0].store.id)
 
   let{data: product} = await supabase
   .from("products")
@@ -30,10 +30,10 @@ export async function load({ params, cookies }) {
   .eq("productstoreid", users[0].store.id)
 
 
-  console.log(product)
+ console.log(users[0].store)
 
   return {
-    usuario: users,
+    usuario: users[0].store,
     session: session,
     path: params.slug,
     products: product

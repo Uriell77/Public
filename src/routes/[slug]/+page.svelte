@@ -25,7 +25,7 @@
 
 <section class="mx-0 mb-6 fondo px-0" id="home">
 
-    <Header slug ={$page.url.pathname.slice(1)} storetext={$page.data.usuario[0].store}/>
+    <Header slug ={$page.url.pathname.slice(1)} storetext={$page.data.usuario}/>
 
 
     <div class=" py-2 px-0 mb-2 container  promo has-text-black ">

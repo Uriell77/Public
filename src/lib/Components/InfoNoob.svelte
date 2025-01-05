@@ -1,8 +1,8 @@
 <script>
-// @ts-nocheck
+  // @ts-nocheck
 
-  import { onMount } from "svelte";
-  import { fly,scale,slide } from "svelte/transition";
+  import { onMount} from "svelte";
+  import { fly, scale, slide } from "svelte/transition";
   import { quintOut } from "svelte/easing";
   import Estetoscopio from "$lib/images/estetoscopio.svg";
   import Tubo from "$lib/images/tubo.svg";
@@ -11,22 +11,30 @@
   import Eco from "$lib/images/electro.svg";
   import Presion from "$lib/images/presion.svg";
   import Noob from "$lib/Components/Noob.svelte";
-  import {page} from '$app/stores'
-  import emblaCarouselSvelte from 'embla-carousel-svelte';
+  import { page } from "$app/stores";
+  import emblaCarouselSvelte from "embla-carousel-svelte";
 
+  
 
-
-  let t=false;
+  let infocus;
+  let t = false;
   let pru;
-  let flyers = [1,2,3,4,5];
-
-
+  let flyers = [1, 2, 3, 4, 5];
 
   $: item = 0;
 
   let load = false;
   let pagina = $page.data.path;
-  let options = {loop:true};
+  let options = { loop: true, scale: true};
+
+
+
+  function flyerview(e){
+    console.log(e.target.id)
+  }
+
+
+
 
   function loading() {
     load = !load;
@@ -37,69 +45,58 @@
     }, 1000);
   });
 
-
-function tec(e){
-  pru = e.x
-  //console.log(e)
-}
-
-function prev(){
-  item = (item - 1 + flyers.length) % flyers.length;
+  function tec(e) {
+    pru = e.x;
+    //console.log(e)
   }
 
-function next(){
-  item = (item + 1) % flyers.length;
-}
-
-
-function ter(e){
-  if(pru - e.x < 0 ){
-    prev()
-  }else if(pru - e.x > 0){
-    next()
+  function prev() {
+    item = (item - 1 + flyers.length) % flyers.length;
   }
-   
-}
+
+  function next() {
+    item = (item + 1) % flyers.length;
+  }
+
+  function ter(e) {
+    if (pru - e.x < 0) {
+      prev();
+    } else if (pru - e.x > 0) {
+      next();
+    }
+  }
 </script>
 
 {#if load}
-
-
-  <section class="section px-1 py-0" in:scale={{duration:1000, delay:1000, easing:quintOut}}>
+  <section
+    class="section px-1 py-0"
+    in:scale={{ duration: 1000, delay: 1000, easing: quintOut }}
+  >
     <p class="titulo pb-3 mb-0">Promociones</p>
 
-
     <div class="columns is-centered is-mobile mt-6">
-      <div class="column is-full-mobile is-half-desktop">
-
-
-        <div class="box  is-fullwidth">
-
-          <div class="columns">
-
-            
+      <div class="column is-full-mobile is-10-desktop">
+        <div class="mx-0 is-fullwidth">
+          <div class="columns is-fullwidth">
             <div class="column is-fullwidth">
-
-
-
-              
-              <div class="embla" use:emblaCarouselSvelte="{{options}}">
-
-                  <div class="embla__container">
-                    {#each flyers as fly}
-
-                    <div class="embla__slide">
-                      
-
-                        <figure class="image is-2by3 is-covered"
-                        in:scale={{duration:500, easing:quintOut}}
-                        >
-                        <img src="/flyer/{pagina}flyer{fly}.jpg" alt="flyer" />
+              <div class="embla is-in-view is-fullwidth"  use:emblaCarouselSvelte={{ options }}>
+                <div class="embla__container" >
+                  {#each flyers as fly}
+                    <div class="embla__slide"  id="{fly}" >
+                      <!-- svelte-ignore a11y-click-events-have-key-events -->
+                      <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
+                      <figure
+                        class="image is-2by3 is-covered"
+                        in:scale={{ duration: 500, easing: quintOut }}
+                        on:click="{flyerview}"
+                      >
+                        <img src="/flyer/{pagina}flyer{fly}.jpg" alt="flyer" id="{fly}"  />
+                        <div class="sombra"></div>
                       </figure>
                     </div>
-                    {/each}
-                  </div>
+                  {/each}
                 </div>
+              </div>
 
               <!-- 
                 {#key item}
@@ -129,14 +126,14 @@ function ter(e){
         </div>
 
         -->
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+  </section>
 
-    </section>
-
-
-
-<!-- 
+  <!-- 
   
 
 <div class="section p-3 mx-0 has-text-black has-text-weight-bold title servicios" transition:scale={{duration:3000, easing:quintOut}}>
@@ -154,40 +151,53 @@ function ter(e){
   -->
 {/if}
 
-
 <style>
 
-.embla {
+  .embla {
     overflow: hidden;
+    background: linear-gradient(to top, rgba(255,255,255,1), rgba(216, 216, 216, 0.457));
+    border-radius: 30px;
   }
   .embla__container {
     display: flex;
   }
   .embla__slide {
-    flex: 0 0 100%;
+    flex: 0 0 60%;
     min-width: 0;
+    padding:10px;
+    margin-bottom: 30px; 
+  }
+
+  .image{
+    border-style: solid;
+    border-radius: 30px;
+    border-width: 1rem;
+    z-index: 100;
+  }
+
+  img{
+    border-radius: 30px;
+    z-index: 100;
+
   }
 
 
+.sombra{
+  background-color: rgba(1, 1, 1, 1);
+  filter: blur(30px);
+  width: 103%;
+  height:20%;
+  position: absolute;
+  bottom:-65px;
+  left:auto;
+  border-radius: 50px;
+  transform: rotateX(65deg);
+  z-index: 10;
+}
 
-  .box{
-    background-color: rgba(1,1,1,0);
-  }
 
-
-  .button{
-    position:absolute !important ;
-    background-color: red;
-    top:50%;
-    height:50px;
-  }
-
-
-  .button1{
-    left:5%;
-  }
-  .button2{
-    right:5%;
+  .box {
+    background-color: rgba(1, 1, 1, 0);
   }
 
   .titulo {
@@ -201,36 +211,19 @@ function ter(e){
     letter-spacing: 1px;
   }
 
-
-
-
-
-
-  
   @media only screen and (min-width: 768px) {
-
-    .section{
+    .section {
       margin-top: 140px;
     }
 
 
-  .button{
-    position:absolute !important ;
-    background-color: red;
-    top:50%;
-    height:50px;
-  }
-
-
-  .button1{
-    left:25%;
-  }
-  .button2{
-    right:25%;
+     .embla__slide {
+    flex: 0 0 40%;
+    min-width: 0;
+    padding:40px;
+    
   }
 
 
   }
-
-
 </style>
