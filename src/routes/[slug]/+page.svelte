@@ -41,11 +41,11 @@
 
     </div>
 
-<br><br><br><br>
 
-    <div class="container mt-6 p-4 doctores" id="quienes">
+    <div class="container  p-4 doctores" id="quienes">
 
-        <Personal titulo="Quienes Somos?"/>
+        <Personal titulo="Personal Medico"/>
+        <br><br><br><br><br>
 
     </div>
 
