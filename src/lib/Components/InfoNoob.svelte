@@ -72,7 +72,7 @@
     class="section px-1 py-0"
     in:scale={{ duration: 1000, delay: 1000, easing: quintOut }}
   >
-    <p class="titulo pb-3 mb-0">Promociones</p>
+    <p class="titulo pb-3 mb-0 has-text-weight-bold">Promociones</p>
 
     <div class="columns is-centered is-mobile mt-6">
       <div class="column is-full-mobile is-10-desktop">

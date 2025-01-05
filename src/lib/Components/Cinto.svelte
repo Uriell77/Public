@@ -20,7 +20,7 @@
 
 {#if load}
   <section class="section px-1 py-0" in:scale={{duration:1000, delay:1000, easing:quintOut}}>
-    <p class="titulo pb-3 mb-0 pl-4">Servicios</p>
+    <p class="titulo pb-3 mb-0 pl-4 has-text-weight-bold">Servicios</p>
     <div class="box p-3 mt-0">
       <div class="columns is-mobile is-gapless slide">
         {#each $page.data.products as product, index}
