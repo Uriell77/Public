@@ -67,7 +67,7 @@
 
           <div class="column is-3-desktop is-6-mobile p-0 column1">
             <figure class="image vistafront is-3by4 p-0 m-0">
-              <img src={dra} alt="dra" class="" />
+              <img src={dra} alt="dra" class="" loading="lazy"/>
             </figure>
           </div>
 

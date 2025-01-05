@@ -38,9 +38,9 @@
         {indice}
         <figure class="image p-0 m-0 is-128x128">
           {#if psinopsis && indice}
-          <img src="/personal/{psinopsis}personal{indice}.png" alt="logo" class="p-0 m-0 " />
+          <img src="/personal/{psinopsis}personal{indice}.png" alt="logo" class="p-0 m-0 " loading="lazy"/>
           {:else}
-          <img src="/avatar.png" alt="logo" class="p-0 m-0" />
+          <img src="/avatar.png" alt="logo" class="p-0 m-0" loading="lazy"/>
           {/if}
         </figure>
       </div>

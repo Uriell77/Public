@@ -90,7 +90,7 @@
                         in:scale={{ duration: 500, easing: quintOut }}
                         on:click="{flyerview}"
                       >
-                        <img src="/flyer/{pagina}flyer{fly}.jpg" alt="flyer" id="{fly}"  />
+                        <img src="/flyer/{pagina}flyer{fly}.jpg" alt="flyer" id="{fly}" loading="lazy" />
                         <div class="sombra"></div>
                       </figure>
                     </div>
