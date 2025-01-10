@@ -28,15 +28,14 @@
       <div class="column is-half px-0 mt-0">
         <div class="section mx-0 py-2">
             <div class="block has-text-black has-text-weight-bold is-font-primary is-size-4">nombre</div>
-          <p class="container has-text-black block mx-0">
+          <p class="container has-text-black block mx-0 psino">
             {psinopsis}
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, itaque necessitatibus vitae veniam temporibus excepturi deleniti quam similique voluptatum officiis rem maiores. Ipsum sint fugiat magni. Sit omnis rem quia?
           </p>
         </div>
       </div>
       <div class="column is-half">
-        {psinopsis}
-        {indice}
-        <figure class="image p-0 m-0 is-128x128">
+        <figure class="image p-0 m-0">
           {#if psinopsis && indice}
           <img src="/personal/{psinopsis}personal{indice}.png" alt="logo" class="p-0 m-0 " loading="lazy"/>
           {:else}
@@ -49,6 +48,19 @@
 {/if}
 
 <style>
+
+  .psino{
+    max-width:100%;
+    height:100px;
+  }
+
+  .block{
+    overflow:hidden;
+    text-overflow: ellipsis;
+    text-wrap: balance;
+    white-space: wrap;
+
+  }
  
 
   .ficha {
@@ -56,20 +68,17 @@
     border-radius: 10px;
     background-blend-mode: normal;
     background-color: green;
-    background: linear-gradient(180deg, #a4a0a0 0%, #b8b6b6 98%, #e3dede 105%);
+    background: linear-gradient(180deg, #64a3e8 0%, #e3dede 98%, #e3dede 105%);
   }
 
 
 
   .image {
-    position: relative;
-    top: 0%;
-    right: 0%;
   }
 
   img{
-    width: 100px;
-    height: 100px;
+    max-width: 740px;
+    max-height: 193px;
   }
 
  

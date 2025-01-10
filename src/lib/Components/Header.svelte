@@ -135,8 +135,8 @@
     background: rgb(14, 13, 13);
     background: linear-gradient(
       180deg,
-      #a4a0a0 0%,
-      #878383 50.53%,
+      #64a3e8 0%,
+      #64a3e8 50.53%,
       #e3dede 100%
     ) !important;
     background-blend-mode: normal !important;

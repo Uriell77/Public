@@ -63,8 +63,8 @@
       background-blend-mode: normal;
       background: linear-gradient(
         180deg,
-        #a4a0a0 0%,
-        #b8b6b6 98%,
+        #64a3e8 0%,
+        #64a3e8 98%,
         #e3dede 105%
       );
     }
@@ -96,7 +96,7 @@
     border-radius: 10px;
     background-blend-mode: normal;
     background-color: green;
-    background: linear-gradient(180deg, #a4a0a0 0%, #b8b6b6 98%, #e3dede 105%);
+    background: linear-gradient(180deg, #64a3e8 0%,#e3dede 98%, #e3dede 105%);
   }
 
   .image {

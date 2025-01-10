@@ -92,7 +92,7 @@
   .servicard{
     min-width: 100%;
     min-height:20vh;
-    background-color: #9595B3;
+    background-color: #64a3e8;
     border-radius: 30px;
   }
 

@@ -75,7 +75,7 @@
     <p class="titulo pb-3 mb-0 has-text-weight-bold">Promociones</p>
 
     <div class="columns is-centered is-mobile mt-6">
-      <div class="column is-full-mobile is-10-desktop">
+      <div class="column is-full-mobile is-full-desktop">
         <div class="mx-0 is-fullwidth">
           <div class="columns is-fullwidth">
             <div class="column is-fullwidth">
@@ -155,7 +155,9 @@
 
   .embla {
     overflow: hidden;
-    background: linear-gradient(to top, rgba(255,255,255,1), rgba(216, 216, 216, 0.457));
+    background: linear-gradient(to top, rgba(255,255,255,1), 
+      #64a3e8 0%,);
+  
     border-radius: 30px;
   }
   .embla__container {
@@ -173,6 +175,7 @@
     border-radius: 30px;
     border-width: 1rem;
     z-index: 100;
+    border-color: #64a3e8;
   }
 
   img{
@@ -211,18 +214,32 @@
     letter-spacing: 1px;
   }
 
-  @media only screen and (min-width: 768px) {
+  @media only screen and (min-width: 868px) {
     .section {
       margin-top: 140px;
     }
 
 
      .embla__slide {
-    flex: 0 0 40%;
+    flex: 0 0 25%;
     min-width: 0;
     padding:40px;
     
   }
+
+
+   .embla {
+    overflow: hidden;
+    background: linear-gradient(to top, rgba(255,255,255,1), 
+      #64a3e8 0%,); 
+    max-height:100%;
+    border-radius: 30px;
+  }
+  .embla__container {
+    display: flex;
+    max-width:100%;
+  }
+
 
 
   }
