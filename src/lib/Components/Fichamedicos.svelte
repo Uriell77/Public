@@ -27,10 +27,10 @@
     <div class="columns is-mobile px-0 mt-0">
       <div class="column is-half px-0 mt-0">
         <div class="section mx-0 py-2">
-            <div class="block has-text-black has-text-weight-bold is-font-primary is-size-4">nombre</div>
-          <p class="container has-text-black block mx-0 psino">
+            <div class=" has-text-black has-text-weight-bold is-font-primary is-size-4">nombre</div>
+          <p class="has-text-black mx-0 psino pt-5">
             {psinopsis}
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, itaque necessitatibus vitae veniam temporibus excepturi deleniti quam similique voluptatum officiis rem maiores. Ipsum sint fugiat magni. Sit omnis rem quia?
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. At, corporis adipisci voluptates, voluptatum ut, molestias voluptatem possimus aliquid ipsum earum saepe optio! Non explicabo, mollitia sit aspernatur quos odit ex. 
           </p>
         </div>
       </div>
@@ -50,17 +50,13 @@
 <style>
 
   .psino{
-    max-width:100%;
-    height:100px;
+    display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
   }
 
-  .block{
-    overflow:hidden;
-    text-overflow: ellipsis;
-    text-wrap: balance;
-    white-space: wrap;
 
-  }
  
 
   .ficha {
@@ -71,10 +67,6 @@
     background: linear-gradient(180deg, #64a3e8 0%, #e3dede 98%, #e3dede 105%);
   }
 
-
-
-  .image {
-  }
 
   img{
     max-width: 740px;
