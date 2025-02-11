@@ -25,9 +25,9 @@
 
 {#if load}
 <div class="hero  section py-1 m-0 px-2 mb-0" transition:scale={{duration:3000, easing:quintOut}}>
-    <span class="has-text-weight-bold p-1 mb-0 titulo">{titulo}</span>
+    <span class="has-text-weight-bold mb-0 titulo is-size-6-touch">{titulo}</span>
     <div class="field is-grouped slider pb-0 mt-0" >
-        <div class="columns is-centered is-multiline is-mobile">
+        <div class="columns  is-multiline is-mobile">
 
             {#each usuarios as usuario,index}
             <div class="column is-half-desktop is-full-touch">

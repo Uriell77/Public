@@ -38,7 +38,7 @@
 	}
 
     main{
-        background-color: #E3DEDE;
+        background-color: #124542;
         animation: all 2s;
     }
 

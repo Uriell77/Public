@@ -34,13 +34,37 @@
 
     </div>
 
-
+    <br>
     <div class="container mt-2 p-4 mb-6" id="info">
 
         <Noob />
 
     </div>
 
+    <br>
+
+
+    <div class="container p-0">
+
+        <div class="hero is-large p-0">
+                <div class="columns is-mobile is-narrow is-vcentered">
+                    <div class="column is-4-mobile p-0">
+                        <figure class="image is-3by4 p-0">
+                            <img src="/headers/hero.webp" alt="" class="p-0"> 
+                        </figure>
+
+                    </div>
+                    <div class="column has-text-black">
+                        <p class="has-text-centered px-3">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, maiores libero sapiente quod aperiam praesentium dignissimos dolor labore, ea eum itaque possimus doloremque soluta. Architecto neque maxime sint harum vitae. 
+                        </p>
+                        </div>
+                </div>
+        </div>
+
+    </div>
+
+    <br>
 
     <div class="container  p-4 doctores" id="quienes">
 
@@ -81,6 +105,10 @@
         justify-content: center;
         align-items: center;
         overflow:hidden;
+    }
+
+    .hero{
+    background: linear-gradient(180deg, #64a3e8 0%, #e3dede 98%, #e3dede 105%);
     }
 
 

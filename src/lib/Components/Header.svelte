@@ -73,7 +73,7 @@
 
           <div class="column p-0 is-half-mobile column2 has-text-centered">
               <div class="has-text-centered p-2 oswald-title">
-                <h1 class="titulo block has-text-weight-bold">
+                <h1 class="titulo block has-text-weight-bold title">
                   {storetext.storename}
                 </h1>
                 <p class="subtitle has-text-black mt-5 is-size-6 frase p-0">
@@ -97,7 +97,7 @@
     font-family: "Titan", bold;
   }
   .titulo{
-    font-size: 200%;
+    font-size: 250%;
     font-family: "Oswald", bold;
   background: linear-gradient(180deg, #002c8a 0%, #6565ed 71.79%, #c251ff 100%);
   -webkit-background-clip: text;
@@ -171,7 +171,7 @@
 
     @media only screen and (min-width: 768px){
   .titulo{
-    font-size: 400%;
+    font-size: 450%;
     font-family: "Oswald", bold;
   background: linear-gradient(180deg, #002c8a 0%, #2929a0 50.79%, #8b2ebe 80%);
   -webkit-background-clip: text;

@@ -21,7 +21,7 @@
 
 {#if load}
   <div
-    class="control mx-0 ficha has-text-centered py-0 my-0 px-0 mt-6 is-clickable"
+    class="control mx-0 ficha has-text-centered py-0 my-0 px-0 mt-6 is-clickable "
     in:scale|global={{ duration: 3000 }}
   >
     <div class="columns is-mobile px-0 mt-0">
